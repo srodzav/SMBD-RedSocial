@@ -63,7 +63,6 @@ namespace RedSocial
 
                 DateTime s = DateTime.Today;
                 fecharegistro = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-                MessageBox.Show(fecharegistro);
 
                 if ( imagen == "") { imagen = ""; }
                 cadena = "INSERT INTO Persona (nombre, nombre_red_social, imagen_perfil, rol, numero_amigos, fecha_registro) " +
