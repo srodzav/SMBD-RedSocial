@@ -31,6 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabDatos = new System.Windows.Forms.TabControl();
             this.tabPersona = new System.Windows.Forms.TabPage();
+            this.lblPersonaImagen = new System.Windows.Forms.Label();
             this.btnImagenPersona = new System.Windows.Forms.Button();
             this.lblPersonaNombre = new System.Windows.Forms.Label();
             this.cboxRolPersona = new System.Windows.Forms.ComboBox();
@@ -47,11 +48,12 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblPersonaImagen = new System.Windows.Forms.Label();
+            this.txtErrores = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabDatos.SuspendLayout();
             this.tabPersona.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +96,16 @@
             this.tabPersona.TabIndex = 0;
             this.tabPersona.Text = "Persona";
             this.tabPersona.UseVisualStyleBackColor = true;
+            // 
+            // lblPersonaImagen
+            // 
+            this.lblPersonaImagen.AutoSize = true;
+            this.lblPersonaImagen.ForeColor = System.Drawing.Color.Red;
+            this.lblPersonaImagen.Location = new System.Drawing.Point(309, 73);
+            this.lblPersonaImagen.Name = "lblPersonaImagen";
+            this.lblPersonaImagen.Size = new System.Drawing.Size(91, 13);
+            this.lblPersonaImagen.TabIndex = 8;
+            this.lblPersonaImagen.Text = "Imagen sin cargar";
             // 
             // btnImagenPersona
             // 
@@ -211,6 +223,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -225,6 +238,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtErrores);
             this.groupBox3.Location = new System.Drawing.Point(576, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(212, 181);
@@ -249,16 +263,17 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
-            // lblPersonaImagen
+            // txtErrores
             // 
-            this.lblPersonaImagen.AutoSize = true;
-            this.lblPersonaImagen.ForeColor = System.Drawing.Color.Red;
-            this.lblPersonaImagen.Location = new System.Drawing.Point(309, 73);
-            this.lblPersonaImagen.Name = "lblPersonaImagen";
-            this.lblPersonaImagen.Size = new System.Drawing.Size(91, 13);
-            this.lblPersonaImagen.TabIndex = 8;
-            this.lblPersonaImagen.Text = "Imagen sin cargar";
+            this.txtErrores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtErrores.Location = new System.Drawing.Point(7, 20);
+            this.txtErrores.Multiline = true;
+            this.txtErrores.Name = "txtErrores";
+            this.txtErrores.ReadOnly = true;
+            this.txtErrores.Size = new System.Drawing.Size(199, 155);
+            this.txtErrores.TabIndex = 0;
             // 
             // Form1
             // 
@@ -276,6 +291,8 @@
             this.tabPersona.ResumeLayout(false);
             this.tabPersona.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -304,6 +321,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblPersonaImagen;
+        private System.Windows.Forms.TextBox txtErrores;
     }
 }
 

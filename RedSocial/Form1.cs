@@ -49,6 +49,8 @@ namespace RedSocial
             dataGridView1.DataSource = dt;
         }
 
+        #region AGREGAR PERSONA
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             conexion.Open();
@@ -60,8 +62,7 @@ namespace RedSocial
                 { rol = 2; }else { rol = 1; }
 
                 DateTime s = DateTime.Today;
-
-                fecharegistro = s.ToShortDateString();
+                fecharegistro = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
                 MessageBox.Show(fecharegistro);
 
                 if ( imagen == "") { imagen = ""; }
@@ -92,5 +93,95 @@ namespace RedSocial
                 lblPersonaImagen.Text = imagen;
             }
         }
+
+        #endregion
+
+        #region MODIFICAR PERSONA
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            reemplazaDB();
+            cadena =
+                "UPDATE Persona SET " +
+                "nombre='" + nombre + "', nombre_red_social='" + username + "', imagen_perfil=" + imagen + ", numero_amigos='" + numamigos + "', fecha_registro='" + fecharegistro + "' WHERE " +
+                "nombre='" + nombre_t + "' AND nombre_red_social='" + username_t + "' AND imagen_perfil=" + imagen_t + " AND numero_amigos='" + numamigos + "' AND fecha_registro='" + fecharegistro + "';";
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+            if (cant == 1)
+            {
+                txtNombrePersona.Text = "";
+                txtUsernamePersona.Text = "";
+                cboxRolPersona.Text = "";
+                lblPersonaImagen.ForeColor = System.Drawing.Color.Red;
+                lblPersonaImagen.Text = "Imagen sin cargar";
+                txtErrores.Text = "";
+            }
+            else
+            {
+                txtErrores.Text = "No se afectó ninguna fila";
+            }
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                lblPersonaImagen.ForeColor = System.Drawing.Color.Green;
+
+                txtNombrePersona.Text = row.Cells[1].Value.ToString();
+                txtUsernamePersona.Text = row.Cells[2].Value.ToString();
+                lblPersonaImagen.Text = row.Cells[3].Value.ToString();
+                if (row.Cells[4].Value.ToString() == "1")
+                {
+                    cboxRolPersona.Text = "Administrador";
+                } else { cboxRolPersona.Text = "Usuario";  }
+                numamigos = Int32.Parse(row.Cells[5].Value.ToString());
+                fecharegistro = row.Cells[6].Value.ToString();
+                txtErrores.Text = "";
+
+                if (txtNombrePersona.Text != "" && txtUsernamePersona.Text != "" && lblPersonaImagen.Text != "" && cboxRolPersona.Text != "")
+                {
+                    buscaDB();
+                }
+                else
+                {
+                    txtErrores.Text = "No contiene datos el renglon seleccionado";
+                }
+            }
+        }
+
+        private void reemplazaDB()
+        {
+            nombre = txtNombrePersona.Text;
+            username = txtUsernamePersona.Text;
+            imagen = lblPersonaImagen.Text;
+            if (cboxRolPersona.Text == "Administrador")
+            { rol = 2; }
+            else { rol = 1; }
+        }
+
+        private void buscaDB()
+        {
+            nombre_t = txtNombrePersona.Text;
+            username_t = txtUsernamePersona.Text;
+            imagen_t = lblPersonaImagen.Text;
+            if (cboxRolPersona.Text == "Administrador")
+            { rol_t = 2; }
+            else { rol_t = 1; }
+        }
+
+        #endregion
     }
 }
