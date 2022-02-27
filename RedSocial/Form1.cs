@@ -28,12 +28,13 @@ namespace RedSocial
         int rol;
         int numamigos = 0;
         string fecharegistro;
+        string id_persona;
 
         string cadena;
 
         public Form1()
         {
-            conexion = new SqlConnection("server=MINIGODDARD ; database=RedSocial ; integrated security = true");
+            conexion = new SqlConnection("server=DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -103,8 +104,10 @@ namespace RedSocial
             reemplazaDB();
             cadena =
                 "UPDATE Persona SET " +
-                "nombre='" + nombre + "', nombre_red_social='" + username + "', imagen_perfil=" + imagen + ", numero_amigos='" + numamigos + "', fecha_registro='" + fecharegistro + "' WHERE " +
-                "nombre='" + nombre_t + "' AND nombre_red_social='" + username_t + "' AND imagen_perfil=" + imagen_t + " AND numero_amigos='" + numamigos + "' AND fecha_registro='" + fecharegistro + "';";
+                "nombre='" + nombre + "', nombre_red_social='" +
+                username + "', imagen_perfil='" + imagen + "', numero_amigos=" + numamigos + " WHERE id_persona = " +
+                id_persona;
+               
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
@@ -139,6 +142,7 @@ namespace RedSocial
 
                 lblPersonaImagen.ForeColor = System.Drawing.Color.Green;
 
+                id_persona = row.Cells[0].Value.ToString();
                 txtNombrePersona.Text = row.Cells[1].Value.ToString();
                 txtUsernamePersona.Text = row.Cells[2].Value.ToString();
                 lblPersonaImagen.Text = row.Cells[3].Value.ToString();
@@ -182,5 +186,35 @@ namespace RedSocial
         }
 
         #endregion
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            reemplazaDB();
+            cadena =
+                "DELETE FROM Persona WHERE id_persona = " + id_persona;
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+            if (cant == 1)
+            {
+                txtNombrePersona.Text = "";
+                txtUsernamePersona.Text = "";
+                cboxRolPersona.Text = "";
+                lblPersonaImagen.ForeColor = System.Drawing.Color.Red;
+                lblPersonaImagen.Text = "Imagen sin cargar";
+                txtErrores.Text = "";
+            }
+            else
+            {
+                txtErrores.Text = "No se afectó ninguna fila";
+            }
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+        }
     }
 }
