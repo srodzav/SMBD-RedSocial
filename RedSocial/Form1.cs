@@ -34,7 +34,7 @@ namespace RedSocial
 
         public Form1()
         {
-            conexion = new SqlConnection("server=DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            conexion = new SqlConnection("server= MINIGODDARD ; database=RedSocial ; integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -187,6 +187,7 @@ namespace RedSocial
 
         #endregion
 
+        #region ELIMINAR PERSONA
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             conexion.Open();
@@ -215,6 +216,12 @@ namespace RedSocial
             muestraDB();
             comando.Connection.Close();
             conexion.Close();
+        }
+        #endregion
+
+        private void tabDatos_Selected(object sender, TabControlEventArgs e)
+        {
+            MessageBox.Show(e.TabPage.ToString());
         }
     }
 }

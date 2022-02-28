@@ -41,6 +41,11 @@
             this.txtNombrePersona = new System.Windows.Forms.TextBox();
             this.lblRol = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rdbtnAmigo = new System.Windows.Forms.RadioButton();
+            this.cboxAmigoAgregar = new System.Windows.Forms.ComboBox();
+            this.cboxAmigos = new System.Windows.Forms.ComboBox();
+            this.lblAgregar = new System.Windows.Forms.Label();
+            this.lblidAmigo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -52,6 +57,7 @@
             this.groupBox1.SuspendLayout();
             this.tabDatos.SuspendLayout();
             this.tabPersona.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -61,11 +67,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabDatos);
-            this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(579, 223);
+            this.groupBox1.Size = new System.Drawing.Size(434, 181);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
@@ -74,12 +78,12 @@
             // 
             this.tabDatos.Controls.Add(this.tabPersona);
             this.tabDatos.Controls.Add(this.tabPage2);
-            this.tabDatos.Location = new System.Drawing.Point(8, 25);
-            this.tabDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabDatos.Location = new System.Drawing.Point(6, 20);
             this.tabDatos.Name = "tabDatos";
             this.tabDatos.SelectedIndex = 0;
-            this.tabDatos.Size = new System.Drawing.Size(563, 192);
+            this.tabDatos.Size = new System.Drawing.Size(422, 156);
             this.tabDatos.TabIndex = 3;
+            this.tabDatos.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabDatos_Selected);
             // 
             // tabPersona
             // 
@@ -92,11 +96,10 @@
             this.tabPersona.Controls.Add(this.lblImgPerfil);
             this.tabPersona.Controls.Add(this.txtNombrePersona);
             this.tabPersona.Controls.Add(this.lblRol);
-            this.tabPersona.Location = new System.Drawing.Point(4, 25);
-            this.tabPersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPersona.Location = new System.Drawing.Point(4, 22);
             this.tabPersona.Name = "tabPersona";
-            this.tabPersona.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPersona.Size = new System.Drawing.Size(555, 163);
+            this.tabPersona.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPersona.Size = new System.Drawing.Size(414, 130);
             this.tabPersona.TabIndex = 0;
             this.tabPersona.Text = "Persona";
             this.tabPersona.UseVisualStyleBackColor = true;
@@ -105,19 +108,17 @@
             // 
             this.lblPersonaImagen.AutoSize = true;
             this.lblPersonaImagen.ForeColor = System.Drawing.Color.Red;
-            this.lblPersonaImagen.Location = new System.Drawing.Point(412, 90);
-            this.lblPersonaImagen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPersonaImagen.Location = new System.Drawing.Point(309, 73);
             this.lblPersonaImagen.Name = "lblPersonaImagen";
-            this.lblPersonaImagen.Size = new System.Drawing.Size(121, 17);
+            this.lblPersonaImagen.Size = new System.Drawing.Size(91, 13);
             this.lblPersonaImagen.TabIndex = 8;
             this.lblPersonaImagen.Text = "Imagen sin cargar";
             // 
             // btnImagenPersona
             // 
-            this.btnImagenPersona.Location = new System.Drawing.Point(188, 84);
-            this.btnImagenPersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImagenPersona.Location = new System.Drawing.Point(141, 68);
             this.btnImagenPersona.Name = "btnImagenPersona";
-            this.btnImagenPersona.Size = new System.Drawing.Size(216, 28);
+            this.btnImagenPersona.Size = new System.Drawing.Size(162, 23);
             this.btnImagenPersona.TabIndex = 7;
             this.btnImagenPersona.Text = "Cargar";
             this.btnImagenPersona.UseVisualStyleBackColor = true;
@@ -127,10 +128,9 @@
             // 
             this.lblPersonaNombre.AutoSize = true;
             this.lblPersonaNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonaNombre.Location = new System.Drawing.Point(8, 18);
-            this.lblPersonaNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPersonaNombre.Location = new System.Drawing.Point(6, 15);
             this.lblPersonaNombre.Name = "lblPersonaNombre";
-            this.lblPersonaNombre.Size = new System.Drawing.Size(87, 25);
+            this.lblPersonaNombre.Size = new System.Drawing.Size(69, 20);
             this.lblPersonaNombre.TabIndex = 0;
             this.lblPersonaNombre.Text = "Nombre:";
             // 
@@ -140,82 +140,125 @@
             this.cboxRolPersona.Items.AddRange(new object[] {
             "Administrador",
             "Usuario"});
-            this.cboxRolPersona.Location = new System.Drawing.Point(188, 119);
-            this.cboxRolPersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxRolPersona.Location = new System.Drawing.Point(141, 97);
             this.cboxRolPersona.Name = "cboxRolPersona";
-            this.cboxRolPersona.Size = new System.Drawing.Size(344, 24);
+            this.cboxRolPersona.Size = new System.Drawing.Size(259, 21);
             this.cboxRolPersona.TabIndex = 6;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(8, 50);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername.Location = new System.Drawing.Point(6, 41);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(108, 25);
+            this.lblUsername.Size = new System.Drawing.Size(87, 20);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username:";
             // 
             // txtUsernamePersona
             // 
-            this.txtUsernamePersona.Location = new System.Drawing.Point(188, 53);
-            this.txtUsernamePersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsernamePersona.Location = new System.Drawing.Point(141, 43);
             this.txtUsernamePersona.Name = "txtUsernamePersona";
-            this.txtUsernamePersona.Size = new System.Drawing.Size(344, 22);
+            this.txtUsernamePersona.Size = new System.Drawing.Size(259, 20);
             this.txtUsernamePersona.TabIndex = 5;
             // 
             // lblImgPerfil
             // 
             this.lblImgPerfil.AutoSize = true;
             this.lblImgPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImgPerfil.Location = new System.Drawing.Point(8, 84);
-            this.lblImgPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImgPerfil.Location = new System.Drawing.Point(6, 68);
             this.lblImgPerfil.Name = "lblImgPerfil";
-            this.lblImgPerfil.Size = new System.Drawing.Size(158, 25);
+            this.lblImgPerfil.Size = new System.Drawing.Size(128, 20);
             this.lblImgPerfil.TabIndex = 2;
             this.lblImgPerfil.Text = "Imagen de Perfil:";
             // 
             // txtNombrePersona
             // 
-            this.txtNombrePersona.Location = new System.Drawing.Point(188, 21);
-            this.txtNombrePersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombrePersona.Location = new System.Drawing.Point(141, 17);
             this.txtNombrePersona.Name = "txtNombrePersona";
-            this.txtNombrePersona.Size = new System.Drawing.Size(344, 22);
+            this.txtNombrePersona.Size = new System.Drawing.Size(259, 20);
             this.txtNombrePersona.TabIndex = 4;
             // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(8, 117);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Location = new System.Drawing.Point(6, 95);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(46, 25);
+            this.lblRol.Size = new System.Drawing.Size(37, 20);
             this.lblRol.TabIndex = 3;
             this.lblRol.Text = "Rol:";
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Controls.Add(this.rdbtnAmigo);
+            this.tabPage2.Controls.Add(this.cboxAmigoAgregar);
+            this.tabPage2.Controls.Add(this.cboxAmigos);
+            this.tabPage2.Controls.Add(this.lblAgregar);
+            this.tabPage2.Controls.Add(this.lblidAmigo);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(555, 163);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(414, 130);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Amigo";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rdbtnAmigo
+            // 
+            this.rdbtnAmigo.AutoSize = true;
+            this.rdbtnAmigo.Location = new System.Drawing.Point(123, 64);
+            this.rdbtnAmigo.Name = "rdbtnAmigo";
+            this.rdbtnAmigo.Size = new System.Drawing.Size(62, 17);
+            this.rdbtnAmigo.TabIndex = 4;
+            this.rdbtnAmigo.TabStop = true;
+            this.rdbtnAmigo.Text = "Amistad";
+            this.rdbtnAmigo.UseVisualStyleBackColor = true;
+            // 
+            // cboxAmigoAgregar
+            // 
+            this.cboxAmigoAgregar.FormattingEnabled = true;
+            this.cboxAmigoAgregar.Location = new System.Drawing.Point(123, 37);
+            this.cboxAmigoAgregar.Name = "cboxAmigoAgregar";
+            this.cboxAmigoAgregar.Size = new System.Drawing.Size(285, 21);
+            this.cboxAmigoAgregar.TabIndex = 3;
+            // 
+            // cboxAmigos
+            // 
+            this.cboxAmigos.FormattingEnabled = true;
+            this.cboxAmigos.Location = new System.Drawing.Point(123, 10);
+            this.cboxAmigos.Name = "cboxAmigos";
+            this.cboxAmigos.Size = new System.Drawing.Size(285, 21);
+            this.cboxAmigos.TabIndex = 2;
+            // 
+            // lblAgregar
+            // 
+            this.lblAgregar.AutoSize = true;
+            this.lblAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgregar.Location = new System.Drawing.Point(6, 35);
+            this.lblAgregar.Name = "lblAgregar";
+            this.lblAgregar.Size = new System.Drawing.Size(119, 20);
+            this.lblAgregar.TabIndex = 1;
+            this.lblAgregar.Text = "Amigo Agregar:";
+            // 
+            // lblidAmigo
+            // 
+            this.lblidAmigo.AutoSize = true;
+            this.lblidAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblidAmigo.Location = new System.Drawing.Point(6, 8);
+            this.lblidAmigo.Name = "lblidAmigo";
+            this.lblidAmigo.Size = new System.Drawing.Size(58, 20);
+            this.lblidAmigo.TabIndex = 0;
+            this.lblidAmigo.Text = "Amigo:";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Location = new System.Drawing.Point(604, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(453, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(156, 223);
+            this.groupBox2.Size = new System.Drawing.Size(117, 181);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -223,10 +266,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(9, 159);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(7, 129);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(132, 44);
+            this.btnEliminar.Size = new System.Drawing.Size(99, 36);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -235,10 +277,9 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(9, 98);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Location = new System.Drawing.Point(7, 80);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(132, 42);
+            this.btnModificar.Size = new System.Drawing.Size(99, 34);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -247,10 +288,9 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(9, 37);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(7, 30);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(132, 41);
+            this.btnAgregar.Size = new System.Drawing.Size(99, 33);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -259,11 +299,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtErrores);
-            this.groupBox3.Location = new System.Drawing.Point(768, 16);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(576, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(283, 223);
+            this.groupBox3.Size = new System.Drawing.Size(212, 181);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Errores";
@@ -271,22 +309,19 @@
             // txtErrores
             // 
             this.txtErrores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtErrores.Location = new System.Drawing.Point(9, 25);
-            this.txtErrores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtErrores.Location = new System.Drawing.Point(7, 20);
             this.txtErrores.Multiline = true;
             this.txtErrores.Name = "txtErrores";
             this.txtErrores.ReadOnly = true;
-            this.txtErrores.Size = new System.Drawing.Size(264, 190);
+            this.txtErrores.Size = new System.Drawing.Size(199, 155);
             this.txtErrores.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(17, 247);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(13, 201);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1033, 292);
+            this.groupBox4.Size = new System.Drawing.Size(775, 237);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Base de Datos";
@@ -294,29 +329,29 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 25);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1012, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "SMBD Red Social";
             this.groupBox1.ResumeLayout(false);
             this.tabDatos.ResumeLayout(false);
             this.tabPersona.ResumeLayout(false);
             this.tabPersona.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -349,6 +384,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblPersonaImagen;
         private System.Windows.Forms.TextBox txtErrores;
+        private System.Windows.Forms.RadioButton rdbtnAmigo;
+        private System.Windows.Forms.ComboBox cboxAmigoAgregar;
+        private System.Windows.Forms.ComboBox cboxAmigos;
+        private System.Windows.Forms.Label lblAgregar;
+        private System.Windows.Forms.Label lblidAmigo;
     }
 }
 
