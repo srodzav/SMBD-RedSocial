@@ -22,7 +22,8 @@ namespace RedSocial
         string cadena;
         public Amigo()
         {
-            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
@@ -34,8 +35,8 @@ namespace RedSocial
         {
             if (cboxAmigos.Text != "" && cboxAmigoAgregar.Text != "" )
             {
-                amigo = cboxAmigos.ValueMember;
-                agrega_amigo = cboxAmigoAgregar.ValueMember;
+                amigo = cboxAmigos.SelectedValue.ToString();
+                agrega_amigo = cboxAmigoAgregar.SelectedValue.ToString();
                 amistad = cbAmistad.Checked;
 
                 DateTime s = DateTime.Today;
@@ -43,6 +44,7 @@ namespace RedSocial
                 
                 cadena = "INSERT INTO Amigo (id_persona, id_persona_amigo, solicitud_amistad, fecha_inicio_amistad) " +
                     "VALUES (" + amigo + "," + agrega_amigo + ","+ (amistad ? "1" : "0") + ",'" + fecharegistro + "')";
+                MessageBox.Show(cadena);
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 
