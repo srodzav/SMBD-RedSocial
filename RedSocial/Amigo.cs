@@ -27,8 +27,8 @@ namespace RedSocial
         string solicitud_amistad;
         public Amigo()
         {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
@@ -49,12 +49,14 @@ namespace RedSocial
                 
                 cadena = "INSERT INTO Amigo (id_persona, id_persona_amigo, solicitud_amistad, fecha_inicio_amistad) " +
                     "VALUES (" + amigo + "," + agrega_amigo + ","+ (amistad ? "1" : "0") + ",'" + fecharegistro + "')";
-                MessageBox.Show(cadena);
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 
+                cboxAmigos.SelectedIndex = 0;
+                cboxAmigoAgregar.SelectedIndex = 0;
+                cbAmistad.Checked = false;
+
                 muestraDB();
-                conexion.Close();
             }
         }
 
@@ -82,7 +84,13 @@ namespace RedSocial
 
                 //Assign DataTable as DataSource.
                 cboxAmigos.DataSource = dt;
-                cboxAmigos.DisplayMember = "nombre";
+
+                dt.Columns.Add(
+                "name",
+                typeof(string),
+                "id_persona + ' - ' + nombre");
+
+                cboxAmigos.DisplayMember = "name";
                 cboxAmigos.ValueMember = "id_persona";
             }
 
@@ -100,7 +108,12 @@ namespace RedSocial
                 //Assign DataTable as DataSource.
 
                 cboxAmigoAgregar.DataSource = dataTable;
-                cboxAmigoAgregar.DisplayMember = "nombre";
+                dataTable.Columns.Add(
+                "name",
+                typeof(string),
+                "id_persona + ' - ' + nombre");
+
+                cboxAmigoAgregar.DisplayMember = "name";
                 cboxAmigoAgregar.ValueMember = "id_persona";
             }
         }
@@ -114,32 +127,63 @@ namespace RedSocial
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
+                id_amigo = row.Cells[0].Value.ToString();
+
                 cboxAmigos.SelectedIndex = 0;
                 cboxAmigoAgregar.SelectedIndex = 0;
 
                 cboxAmigos.SelectedText= row.Cells[1].Value.ToString();
                 cboxAmigoAgregar.SelectedText = row.Cells[2].Value.ToString();
 
-                id_amigo = row.Cells[0].Value.ToString();
+                
                 id_persona = row.Cells[1].Value.ToString();
                 id_persona_amigo = row.Cells[2].Value.ToString();
                 solicitud_amistad = row.Cells[3].Value.ToString();
-
-                if (solicitud_amistad.ToString() == "False")
-                {
-                    cbAmistad.Checked = false;
-                } else { cbAmistad.Checked = true;  }
-
-                if (true)
-                {
-                    //
-                }
-                else
-                {
-                    txtErrores.Text = "No contiene datos el renglon seleccionado";
-                }
+                
+                cbAmistad.Checked = solicitud_amistad.ToString() == "False" ? false : true;
+                
             }
-            conexion.Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            id_persona = cboxAmigos.Text;
+            id_persona_amigo = cboxAmigoAgregar.Text;
+
+            var stringNumber = cboxAmigos.Text;
+            int numericValue;
+            bool isNumberPersona = int.TryParse(stringNumber, out numericValue);
+            stringNumber = cboxAmigoAgregar.Text;
+            bool isNumberAmigo = int.TryParse(stringNumber, out numericValue);
+
+            cadena =
+                "UPDATE Amigo SET id_persona=" + (isNumberPersona == true ? cboxAmigos.Text : cboxAmigos.SelectedValue) + 
+                ", id_persona_amigo=" + (isNumberAmigo == true ? cboxAmigoAgregar.Text : cboxAmigoAgregar.SelectedValue) + 
+                ", solicitud_amistad=" + (cbAmistad.Checked == false ? 0 : 1) +" WHERE id_amigo = " + id_amigo;
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+
+            cboxAmigos.SelectedIndex = 0;
+            cboxAmigoAgregar.SelectedIndex = 0;
+            cbAmistad.Checked = false;
+
+            muestraDB();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            cadena = "DELETE FROM Amigo WHERE id_amigo = " + id_amigo;
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+
+
+            cboxAmigos.SelectedIndex = 0;
+            cboxAmigoAgregar.SelectedIndex = 0;
+            cbAmistad.Checked = false;
+            muestraDB();
         }
     }
 }
