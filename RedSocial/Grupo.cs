@@ -24,7 +24,8 @@ namespace RedSocial
         string cadena;
         public Grupo()
         {
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;

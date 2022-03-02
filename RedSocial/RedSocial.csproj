@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Notificacion.Designer.cs">
       <DependentUpon>Notificacion.cs</DependentUpon>
+    </Compile> 
     <Compile Include="Grupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notificacion.resx">
       <DependentUpon>Notificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grupo.resx">
       <DependentUpon>Grupo.cs</DependentUpon>
     </EmbeddedResource>
