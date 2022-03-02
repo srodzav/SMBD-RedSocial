@@ -31,5 +31,10 @@ namespace RedSocial
         {
             new Amigo().Show();
         }
+
+        private void btnNotificacion_Click(object sender, EventArgs e)
+        {
+            new Notificacion().Show();
+        }
     }
 }

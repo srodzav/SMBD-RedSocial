@@ -30,6 +30,7 @@
         {
             this.btnPersona = new System.Windows.Forms.Button();
             this.btnAmigo = new System.Windows.Forms.Button();
+            this.btnNotificacion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPersona
@@ -52,11 +53,22 @@
             this.btnAmigo.UseVisualStyleBackColor = true;
             this.btnAmigo.Click += new System.EventHandler(this.btnAmigo_Click);
             // 
+            // btnNotificacion
+            // 
+            this.btnNotificacion.Location = new System.Drawing.Point(12, 76);
+            this.btnNotificacion.Name = "btnNotificacion";
+            this.btnNotificacion.Size = new System.Drawing.Size(129, 58);
+            this.btnNotificacion.TabIndex = 2;
+            this.btnNotificacion.Text = "Notificacion";
+            this.btnNotificacion.UseVisualStyleBackColor = true;
+            this.btnNotificacion.Click += new System.EventHandler(this.btnNotificacion_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnNotificacion);
             this.Controls.Add(this.btnAmigo);
             this.Controls.Add(this.btnPersona);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -70,6 +82,7 @@
 
         private System.Windows.Forms.Button btnPersona;
         private System.Windows.Forms.Button btnAmigo;
+        private System.Windows.Forms.Button btnNotificacion;
     }
 }
 

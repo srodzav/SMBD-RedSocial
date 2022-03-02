@@ -11,21 +11,19 @@ using System.Windows.Forms;
 
 namespace RedSocial
 {
-    public partial class Amigo : Form
+    public partial class Notificacion : Form
     {
         SqlConnection conexion;
-        string amigo;
-        string agrega_amigo;
-        Boolean amistad;
-        string fecharegistro;
-
         string cadena;
 
-        string id_amigo;
+        string id_notificacion;
         string id_persona;
-        string id_persona_amigo;
-        string solicitud_amistad;
-        public Amigo()
+        string id_quien_compartio;
+        string mensaje_txt;
+        string fecharegistro;
+        Boolean visto;
+
+        public Notificacion()
         {
             conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
             //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
@@ -36,25 +34,37 @@ namespace RedSocial
             muestraDB();
         }
 
+        public void muestraDB()
+        {
+            cadena = "SELECT * FROM Notificacion";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (cboxAmigos.Text != "" && cboxAmigoAgregar.Text != "" )
+            if (cboxPersona.Text != "" && cboxQuienCompartio.Text != "")
             {
-                amigo = cboxAmigos.SelectedValue.ToString();
-                agrega_amigo = cboxAmigoAgregar.SelectedValue.ToString();
-                amistad = cbAmistad.Checked;
+                id_persona = cboxPersona.SelectedValue.ToString();
+                id_quien_compartio = cboxQuienCompartio.SelectedValue.ToString();
+                mensaje_txt = mensaje.Text;
+                visto = cbVisto.Checked;
 
                 DateTime s = DateTime.Today;
                 fecharegistro = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-                
-                cadena = "INSERT INTO Amigo (id_persona, id_persona_amigo, solicitud_amistad, fecha_inicio_amistad) " +
-                    "VALUES (" + amigo + "," + agrega_amigo + ","+ (amistad ? "1" : "0") + ",'" + fecharegistro + "')";
+
+                cadena = "INSERT INTO Notificacion (id_persona, id_quien_compartio, mensaje, visto,fecha_notficacion) " +
+                    "VALUES (" + id_persona + "," + id_quien_compartio + ",'" + mensaje_txt + "'," + (visto ? "1" : "0") + ",'" + fecharegistro + "')";
+                MessageBox.Show(cadena);
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 
-                cboxAmigos.SelectedIndex = 0;
-                cboxAmigoAgregar.SelectedIndex = 0;
-                cbAmistad.Checked = false;
+                cboxPersona.SelectedIndex = 0;
+                cboxQuienCompartio.SelectedIndex = 0;
+                mensaje.Text = "";
+                cbVisto.Checked = false;
                 btnModificar.Enabled = false;
                 btnEliminar.Enabled = false;
 
@@ -62,16 +72,7 @@ namespace RedSocial
             }
         }
 
-        public void muestraDB()
-        {
-            cadena = "SELECT * FROM Amigo";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
-            DataTable dt = new DataTable();
-            dataAdapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-        }
-        
-        private void Amigo_Load(object sender, EventArgs e)
+        private void Notificacion_Load(object sender, EventArgs e)
         {
             using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
             {
@@ -85,15 +86,15 @@ namespace RedSocial
                 dt.Rows.InsertAt(row, 0);
 
                 //Assign DataTable as DataSource.
-                cboxAmigos.DataSource = dt;
+                cboxPersona.DataSource = dt;
 
                 dt.Columns.Add(
                 "name",
                 typeof(string),
                 "id_persona + ' - ' + nombre");
 
-                cboxAmigos.DisplayMember = "name";
-                cboxAmigos.ValueMember = "id_persona";
+                cboxPersona.DisplayMember = "name";
+                cboxPersona.ValueMember = "id_persona";
             }
 
             using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
@@ -109,14 +110,14 @@ namespace RedSocial
 
                 //Assign DataTable as DataSource.
 
-                cboxAmigoAgregar.DataSource = dataTable;
+                cboxQuienCompartio.DataSource = dataTable;
                 dataTable.Columns.Add(
                 "name",
                 typeof(string),
                 "id_persona + ' - ' + nombre");
 
-                cboxAmigoAgregar.DisplayMember = "name";
-                cboxAmigoAgregar.ValueMember = "id_persona";
+                cboxQuienCompartio.DisplayMember = "name";
+                cboxQuienCompartio.ValueMember = "id_persona";
             }
         }
 
@@ -129,46 +130,46 @@ namespace RedSocial
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
-                id_amigo = row.Cells[0].Value.ToString();
+                id_notificacion = row.Cells[0].Value.ToString();
 
-                cboxAmigos.SelectedIndex = 0;
-                cboxAmigoAgregar.SelectedIndex = 0;
+                cboxPersona.SelectedIndex = 0;
+                cboxQuienCompartio.SelectedIndex = 0;
 
-                cboxAmigos.SelectedText= row.Cells[1].Value.ToString();
-                cboxAmigoAgregar.SelectedText = row.Cells[2].Value.ToString();
+                cboxPersona.SelectedText = row.Cells[1].Value.ToString();
+                cboxQuienCompartio.SelectedText = row.Cells[2].Value.ToString();
+                mensaje.Text = row.Cells[3].Value.ToString();
 
-                
                 id_persona = row.Cells[1].Value.ToString();
-                id_persona_amigo = row.Cells[2].Value.ToString();
-                solicitud_amistad = row.Cells[3].Value.ToString();
-                
-                cbAmistad.Checked = solicitud_amistad.ToString() == "False" ? false : true;
-                
+                id_quien_compartio = row.Cells[2].Value.ToString();
+                mensaje_txt = row.Cells[3].Value.ToString();
+                string visto = row.Cells[4].Value.ToString();
+
+                cbVisto.Checked = visto.ToString() == "False" ? false : true;
+
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            id_persona = cboxAmigos.Text;
-            id_persona_amigo = cboxAmigoAgregar.Text;
-
-            var stringNumber = cboxAmigos.Text;
+            var stringNumber = cboxPersona.Text;
             int numericValue;
             bool isNumberPersona = int.TryParse(stringNumber, out numericValue);
-            stringNumber = cboxAmigoAgregar.Text;
+            stringNumber = cboxQuienCompartio.Text;
             bool isNumberAmigo = int.TryParse(stringNumber, out numericValue);
 
             cadena =
-                "UPDATE Amigo SET id_persona=" + (isNumberPersona == true ? cboxAmigos.Text : cboxAmigos.SelectedValue) + 
-                ", id_persona_amigo=" + (isNumberAmigo == true ? cboxAmigoAgregar.Text : cboxAmigoAgregar.SelectedValue) + 
-                ", solicitud_amistad=" + (cbAmistad.Checked == false ? 0 : 1) +" WHERE id_amigo = " + id_amigo;
+                "UPDATE Notificacion SET id_persona=" + (isNumberPersona == true ? cboxPersona.Text : cboxPersona.SelectedValue) +
+                ", id_quien_compartio=" + (isNumberAmigo == true ? cboxQuienCompartio.Text : cboxQuienCompartio.SelectedValue) +
+                ", mensaje='" + mensaje.Text +
+                "', visto=" + (cbVisto.Checked == false ? 0 : 1) + " WHERE id_notificacion = " + id_notificacion;
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
 
-            cboxAmigos.SelectedIndex = 0;
-            cboxAmigoAgregar.SelectedIndex = 0;
-            cbAmistad.Checked = false;
+            cboxPersona.SelectedIndex = 0;
+            cboxQuienCompartio.SelectedIndex = 0;
+            mensaje.Text = "";
+            cbVisto.Checked = false;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
 
@@ -177,16 +178,17 @@ namespace RedSocial
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            cadena = "DELETE FROM Amigo WHERE id_amigo = " + id_amigo;
+            cadena = "DELETE FROM Notificacion WHERE id_notificacion = " + id_notificacion;
 
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
 
 
-            cboxAmigos.SelectedIndex = 0;
-            cboxAmigoAgregar.SelectedIndex = 0;
-            cbAmistad.Checked = false;
+            cboxPersona.SelectedIndex = 0;
+            cboxQuienCompartio.SelectedIndex = 0;
+            mensaje.Text = "";
+            cbVisto.Checked = false;
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             muestraDB();
