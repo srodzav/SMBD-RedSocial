@@ -101,5 +101,64 @@ namespace RedSocial
                 cboxCreadorGrupo.ValueMember = "id_persona";
             }
         }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
+
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                id_grupo = row.Cells[0].Value.ToString();
+                cboxCreadorGrupo.SelectedIndex = 0;
+                cboxCreadorGrupo.SelectedText = row.Cells[1].Value.ToString();
+                id_creador = row.Cells[1].Value.ToString();
+                nombre = row.Cells[2].Value.ToString();
+                descripcion = row.Cells[3].Value.ToString();
+                imagen = row.Cells[4].Value.ToString();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            id_creador = txtNombreGrupo.Text;
+            nombre = cboxCreadorGrupo.Text;
+            imagen = lblGrupoImagen.Text;
+            descripcion = txtDescripcionGrupo.Text;
+
+            cadena =
+                "UPDATE Grupo SET id_creador='"+id_creador+"', nombre='"+nombre+"', descripcion='"+descripcion+"', imagen='"+imagen+"' " +
+                "WHERE id_grupo = '"+id_grupo;
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            cadena = "DELETE FROM Grupo WHERE id_grupo = " + id_grupo;
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+
+            txtNombreGrupo.Text = "";
+            cboxCreadorGrupo.SelectedIndex = 0;
+            txtDescripcionGrupo.Text = "";
+
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+        }
     }
 }

@@ -37,6 +37,8 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboxCreadorGrupo = new System.Windows.Forms.ComboBox();
+            this.txtDescripcionGrupo = new System.Windows.Forms.TextBox();
             this.lblGrupoImagen = new System.Windows.Forms.Label();
             this.btnImagenGrupo = new System.Windows.Forms.Button();
             this.lblNombreGrupo = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.txtNombreGrupo = new System.Windows.Forms.TextBox();
             this.lblImgGrupo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcionGrupo = new System.Windows.Forms.TextBox();
-            this.cboxCreadorGrupo = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -70,6 +70,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
@@ -112,6 +113,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -122,6 +124,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -151,6 +154,22 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
+            // 
+            // cboxCreadorGrupo
+            // 
+            this.cboxCreadorGrupo.FormattingEnabled = true;
+            this.cboxCreadorGrupo.Location = new System.Drawing.Point(164, 68);
+            this.cboxCreadorGrupo.Name = "cboxCreadorGrupo";
+            this.cboxCreadorGrupo.Size = new System.Drawing.Size(249, 21);
+            this.cboxCreadorGrupo.TabIndex = 19;
+            // 
+            // txtDescripcionGrupo
+            // 
+            this.txtDescripcionGrupo.Location = new System.Drawing.Point(164, 123);
+            this.txtDescripcionGrupo.Multiline = true;
+            this.txtDescripcionGrupo.Name = "txtDescripcionGrupo";
+            this.txtDescripcionGrupo.Size = new System.Drawing.Size(250, 52);
+            this.txtDescripcionGrupo.TabIndex = 18;
             // 
             // lblGrupoImagen
             // 
@@ -218,22 +237,6 @@
             this.lblDescripcion.Size = new System.Drawing.Size(96, 20);
             this.lblDescripcion.TabIndex = 12;
             this.lblDescripcion.Text = "Descripción:";
-            // 
-            // txtDescripcionGrupo
-            // 
-            this.txtDescripcionGrupo.Location = new System.Drawing.Point(164, 123);
-            this.txtDescripcionGrupo.Multiline = true;
-            this.txtDescripcionGrupo.Name = "txtDescripcionGrupo";
-            this.txtDescripcionGrupo.Size = new System.Drawing.Size(250, 52);
-            this.txtDescripcionGrupo.TabIndex = 18;
-            // 
-            // cboxCreadorGrupo
-            // 
-            this.cboxCreadorGrupo.FormattingEnabled = true;
-            this.cboxCreadorGrupo.Location = new System.Drawing.Point(164, 68);
-            this.cboxCreadorGrupo.Name = "cboxCreadorGrupo";
-            this.cboxCreadorGrupo.Size = new System.Drawing.Size(249, 21);
-            this.cboxCreadorGrupo.TabIndex = 19;
             // 
             // Grupo
             // 
