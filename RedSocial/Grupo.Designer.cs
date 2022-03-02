@@ -249,6 +249,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Grupo";
             this.Text = "Grupo";
+            this.Load += new System.EventHandler(this.Grupo_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
