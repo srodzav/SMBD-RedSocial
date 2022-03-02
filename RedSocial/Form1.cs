@@ -31,5 +31,10 @@ namespace RedSocial
         {
             new Amigo().Show();
         }
+
+        private void btnGrupo_Click(object sender, EventArgs e)
+        {
+            new Grupo().Show();
+        }
     }
 }
