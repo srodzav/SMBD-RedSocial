@@ -64,7 +64,13 @@ namespace RedSocial
 
         public void muestraDB()
         {
-            cadena = "SELECT * FROM Amigo";
+
+            cadena = "SELECT A.id_amigo, CONCAT(P.id_persona, '-' ,P.nombre_red_social) as persona , CONCAT(Pe.id_persona, '-' ,Pe.nombre_red_social) as amigo,A.solicitud_amistad, A.fecha_inicio_amistad " +
+                "FROM Amigo A " +
+                "INNER JOIN Persona AS P " +
+                "ON A.id_persona = P.id_persona " +
+                "INNER JOIN Persona AS Pe " +
+                "ON A.id_persona_amigo = Pe.id_persona;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
@@ -73,7 +79,7 @@ namespace RedSocial
         
         private void Amigo_Load(object sender, EventArgs e)
         {
-            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
+            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre,nombre_red_social FROM Persona", conexion))
             {
                 //Fill the DataTable with records from Table.
                 DataTable dt = new DataTable();
@@ -90,13 +96,13 @@ namespace RedSocial
                 dt.Columns.Add(
                 "name",
                 typeof(string),
-                "id_persona + ' - ' + nombre");
+                "id_persona + ' - ' + nombre_red_social");
 
                 cboxAmigos.DisplayMember = "name";
                 cboxAmigos.ValueMember = "id_persona";
             }
 
-            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT id_persona,nombre,nombre_red_social FROM Persona", conexion))
             {
                 //Fill the DataTable with records from Table.
                 DataTable dataTable = new DataTable();
@@ -113,7 +119,7 @@ namespace RedSocial
                 dataTable.Columns.Add(
                 "name",
                 typeof(string),
-                "id_persona + ' - ' + nombre");
+                "id_persona + ' - ' + nombre_red_social");
 
                 cboxAmigoAgregar.DisplayMember = "name";
                 cboxAmigoAgregar.ValueMember = "id_persona";
@@ -135,9 +141,13 @@ namespace RedSocial
                 cboxAmigoAgregar.SelectedIndex = 0;
 
                 cboxAmigos.SelectedText= row.Cells[1].Value.ToString();
-                cboxAmigoAgregar.SelectedText = row.Cells[2].Value.ToString();
+                string[] data = row.Cells[1].Value.ToString().Split('-');
+                cboxAmigos.SelectedValue = data[0];
 
-                
+                cboxAmigoAgregar.SelectedText = row.Cells[2].Value.ToString();
+                string[] data2 = row.Cells[2].Value.ToString().Split('-');
+                cboxAmigoAgregar.SelectedValue = data2[0];
+
                 id_persona = row.Cells[1].Value.ToString();
                 id_persona_amigo = row.Cells[2].Value.ToString();
                 solicitud_amistad = row.Cells[3].Value.ToString();
