@@ -19,8 +19,8 @@ namespace RedSocial
         string id_grupo, id_grupo_T;
         public PersonaGrupo()
         {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -33,7 +33,8 @@ namespace RedSocial
             //    "FROM Grupo A " +
             //    "INNER JOIN Persona AS P " +
             //    "ON A.id_creador = P.id_persona;";
-            cadena = "SELECT * FROM PersonaGrupo";
+            cadena = "SELECT CONCAT(P.id_persona, '-' ,P.nombre_red_social) as Persona,CONCAT(G.id_grupo, '-' ,G.nombre) as Grupo " +
+                "FROM PersonaGrupo A INNER JOIN Persona AS P ON A.id_persona = P.id_persona INNER JOIN Grupo AS G ON A.id_grupo = G.id_grupo;";
 
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
@@ -133,7 +134,6 @@ namespace RedSocial
             cadena =
                 "UPDATE PersonaGrupo SET id_persona=" + id_persona + ", id_grupo=" + id_grupo + 
                 " WHERE id_persona = " + id_persona_T + " AND id_grupo = " + id_grupo_T;
-            MessageBox.Show(cadena);
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
@@ -156,11 +156,20 @@ namespace RedSocial
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 
+                //cboxNombreGrupoPG.SelectedText = row.Cells[1].Value.ToString();
                 cboxNombreGrupoPG.SelectedText = row.Cells[1].Value.ToString();
-                cboxCreadorGrupoPG.SelectedText = row.Cells[0].Value.ToString();
+                string[] data = row.Cells[1].Value.ToString().Split('-');
+                cboxNombreGrupoPG.SelectedValue = data[0];
 
-                id_persona_T = row.Cells[0].Value.ToString();
-                id_grupo_T = row.Cells[1].Value.ToString();
+                //cboxCreadorGrupoPG.SelectedText = row.Cells[0].Value.ToString();
+
+                cboxCreadorGrupoPG.SelectedText = row.Cells[0].Value.ToString();
+                string[] data2 = row.Cells[0].Value.ToString().Split('-');
+                cboxCreadorGrupoPG.SelectedValue = data2[0];
+
+
+                id_persona_T = data2[0];
+                id_grupo_T = data[0];
             }
         }
     }

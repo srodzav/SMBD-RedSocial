@@ -37,5 +37,10 @@ namespace RedSocial
             dataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
