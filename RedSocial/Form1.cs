@@ -41,5 +41,10 @@ namespace RedSocial
         {
             new Grupo().Show();
         }
+
+        private void btnRecurso_Click(object sender, EventArgs e)
+        {
+            new Recurso().Show();
+        }
     }
 }

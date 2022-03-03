@@ -32,6 +32,7 @@
             this.btnAmigo = new System.Windows.Forms.Button();
             this.btnNotificacion = new System.Windows.Forms.Button();
             this.btnGrupo = new System.Windows.Forms.Button();
+            this.btnRecurso = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPersona
@@ -59,7 +60,7 @@
             // btnNotificacion
             // 
             this.btnNotificacion.Location = new System.Drawing.Point(13, 76);
-            this.btnNotificacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNotificacion.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotificacion.Name = "btnNotificacion";
             this.btnNotificacion.Size = new System.Drawing.Size(128, 71);
             this.btnNotificacion.TabIndex = 2;
@@ -70,7 +71,7 @@
             // btnGrupo
             // 
             this.btnGrupo.Location = new System.Drawing.Point(283, 12);
-            this.btnGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupo.Name = "btnGrupo";
             this.btnGrupo.Size = new System.Drawing.Size(129, 58);
             this.btnGrupo.TabIndex = 2;
@@ -78,16 +79,27 @@
             this.btnGrupo.UseVisualStyleBackColor = true;
             this.btnGrupo.Click += new System.EventHandler(this.btnGrupo_Click);
             // 
+            // btnRecurso
+            // 
+            this.btnRecurso.Location = new System.Drawing.Point(148, 76);
+            this.btnRecurso.Name = "btnRecurso";
+            this.btnRecurso.Size = new System.Drawing.Size(128, 71);
+            this.btnRecurso.TabIndex = 3;
+            this.btnRecurso.Text = "Recurso";
+            this.btnRecurso.UseVisualStyleBackColor = true;
+            this.btnRecurso.Click += new System.EventHandler(this.btnRecurso_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnRecurso);
             this.Controls.Add(this.btnNotificacion);
             this.Controls.Add(this.btnGrupo);
             this.Controls.Add(this.btnAmigo);
             this.Controls.Add(this.btnPersona);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "SMBD Red Social";
             this.ResumeLayout(false);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.Button btnAmigo;
         private System.Windows.Forms.Button btnNotificacion;
         private System.Windows.Forms.Button btnGrupo;
+        private System.Windows.Forms.Button btnRecurso;
     }
 }
 
