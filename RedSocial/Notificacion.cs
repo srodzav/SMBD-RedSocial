@@ -25,8 +25,8 @@ namespace RedSocial
 
         public Notificacion()
         {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
@@ -37,6 +37,13 @@ namespace RedSocial
         public void muestraDB()
         {
             cadena = "SELECT * FROM Notificacion";
+
+            cadena = "SELECT A.id_notificacion, CONCAT(P.id_persona, '-' ,P.nombre_red_social) as persona , CONCAT(Pe.id_persona, '-' ,Pe.nombre_red_social) as amigo,A.mensaje, A.visto, A.fecha_notficacion" +
+                " FROM Notificacion A " +
+                "INNER JOIN Persona AS P " +
+                "ON A.id_persona = P.id_persona " +
+                "INNER JOIN Persona AS Pe " +
+                "ON A.id_quien_compartio = Pe.id_persona;";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
@@ -135,8 +142,18 @@ namespace RedSocial
                 cboxPersona.SelectedIndex = 0;
                 cboxQuienCompartio.SelectedIndex = 0;
 
+                //cboxPersona.SelectedText = row.Cells[1].Value.ToString();
+
                 cboxPersona.SelectedText = row.Cells[1].Value.ToString();
+                string[] data = row.Cells[1].Value.ToString().Split('-');
+                cboxPersona.SelectedValue = data[0];
+
+
+                //cboxQuienCompartio.SelectedText = row.Cells[2].Value.ToString();
                 cboxQuienCompartio.SelectedText = row.Cells[2].Value.ToString();
+                string[] data2 = row.Cells[2].Value.ToString().Split('-');
+                cboxQuienCompartio.SelectedValue = data2[0];
+
                 mensaje.Text = row.Cells[3].Value.ToString();
 
                 id_persona = row.Cells[1].Value.ToString();
@@ -145,7 +162,6 @@ namespace RedSocial
                 string visto = row.Cells[4].Value.ToString();
 
                 cbVisto.Checked = visto.ToString() == "False" ? false : true;
-
             }
         }
 

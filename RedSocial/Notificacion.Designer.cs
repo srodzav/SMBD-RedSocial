@@ -37,13 +37,13 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbVisto = new System.Windows.Forms.CheckBox();
+            this.mensaje = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cboxQuienCompartio = new System.Windows.Forms.ComboBox();
             this.cboxPersona = new System.Windows.Forms.ComboBox();
             this.lblAgregar = new System.Windows.Forms.Label();
             this.lblidAmigo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.mensaje = new System.Windows.Forms.TextBox();
-            this.cbVisto = new System.Windows.Forms.CheckBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -164,6 +164,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // cbVisto
+            // 
+            this.cbVisto.AutoSize = true;
+            this.cbVisto.Location = new System.Drawing.Point(179, 137);
+            this.cbVisto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbVisto.Name = "cbVisto";
+            this.cbVisto.Size = new System.Drawing.Size(61, 21);
+            this.cbVisto.TabIndex = 15;
+            this.cbVisto.Text = "Visto";
+            this.cbVisto.UseVisualStyleBackColor = true;
+            // 
+            // mensaje
+            // 
+            this.mensaje.Location = new System.Drawing.Point(179, 100);
+            this.mensaje.Name = "mensaje";
+            this.mensaje.Size = new System.Drawing.Size(379, 22);
+            this.mensaje.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 25);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Mensaje";
+            // 
             // cboxQuienCompartio
             // 
             this.cboxQuienCompartio.FormattingEnabled = true;
@@ -203,34 +231,6 @@
             this.lblidAmigo.Size = new System.Drawing.Size(91, 25);
             this.lblidAmigo.TabIndex = 9;
             this.lblidAmigo.Text = "Persona:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 25);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Mensaje";
-            // 
-            // mensaje
-            // 
-            this.mensaje.Location = new System.Drawing.Point(179, 100);
-            this.mensaje.Name = "mensaje";
-            this.mensaje.Size = new System.Drawing.Size(379, 22);
-            this.mensaje.TabIndex = 14;
-            // 
-            // cbVisto
-            // 
-            this.cbVisto.AutoSize = true;
-            this.cbVisto.Location = new System.Drawing.Point(164, 127);
-            this.cbVisto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbVisto.Name = "cbVisto";
-            this.cbVisto.Size = new System.Drawing.Size(61, 21);
-            this.cbVisto.TabIndex = 15;
-            this.cbVisto.Text = "Visto";
-            this.cbVisto.UseVisualStyleBackColor = true;
             // 
             // Notificacion
             // 
