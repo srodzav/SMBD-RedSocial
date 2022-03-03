@@ -25,8 +25,8 @@ namespace RedSocial
 
         public Notificacion()
         {
-            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
