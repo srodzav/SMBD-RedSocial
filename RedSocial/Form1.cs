@@ -41,5 +41,15 @@ namespace RedSocial
         {
             new Grupo().Show();
         }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+            new Post().Show();
+        }
+
+        private void btnPersonaGrupo_Click(object sender, EventArgs e)
+        {
+            new PersonaGrupo().Show();
+        }
     }
 }
