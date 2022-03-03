@@ -76,6 +76,18 @@
     <Compile Include="Persona.Designer.cs">
       <DependentUpon>Persona.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonaGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonaGrupo.Designer.cs">
+      <DependentUpon>PersonaGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Post.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Post.Designer.cs">
+      <DependentUpon>Post.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recurso.cs">
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persona.resx">
       <DependentUpon>Persona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonaGrupo.resx">
+      <DependentUpon>PersonaGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Post.resx">
+      <DependentUpon>Post.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
