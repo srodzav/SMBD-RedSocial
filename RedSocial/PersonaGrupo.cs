@@ -21,6 +21,7 @@ namespace RedSocial
         {
             conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
             //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -44,7 +45,6 @@ namespace RedSocial
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            conexion.Open();
             if (cboxNombreGrupoPG.Text != "" && cboxCreadorGrupoPG.Text != "")
             {
                 id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
@@ -52,20 +52,27 @@ namespace RedSocial
 
                 cadena = "INSERT INTO PersonaGrupo (id_persona, id_grupo) " +
                     "VALUES ('" + id_persona + "','" + id_grupo + "')";
-                SqlCommand comando = new SqlCommand(cadena, conexion);
-                comando.ExecuteNonQuery();
+                try
+                {
+                    SqlCommand comando = new SqlCommand(cadena, conexion);
+                    comando.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No es posible agregar fila duplicada");
+                }
+                
 
                 cboxNombreGrupoPG.Text = "";
                 cboxCreadorGrupoPG.Text = "";
 
                 muestraDB();
-                conexion.Close();
             }
         }
 
         private void PersonaGrupo_Load(object sender, EventArgs e)
         {
-            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
+            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre,nombre_red_social FROM Persona", conexion))
             {
                 //Fill the DataTable with records from Table.
                 DataTable dt = new DataTable();
@@ -80,7 +87,7 @@ namespace RedSocial
                 dt.Columns.Add(
                 "name",
                 typeof(string),
-                "id_persona + ' - ' + nombre");
+                "id_persona + ' - ' + nombre_red_social");
 
                 cboxCreadorGrupoPG.DisplayMember = "name";
                 cboxCreadorGrupoPG.ValueMember = "id_persona";
@@ -109,7 +116,6 @@ namespace RedSocial
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            conexion.Open();
             cadena = "DELETE FROM PersonaGrupo WHERE id_persona = " + id_persona_T + " AND id_grupo = " + id_grupo_T;
 
             SqlCommand comando = new SqlCommand(cadena, conexion);
@@ -122,29 +128,34 @@ namespace RedSocial
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             muestraDB();
-            conexion.Close();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            conexion.Open();
             id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
             id_grupo = cboxNombreGrupoPG.SelectedValue.ToString();
 
             cadena =
                 "UPDATE PersonaGrupo SET id_persona=" + id_persona + ", id_grupo=" + id_grupo + 
                 " WHERE id_persona = " + id_persona_T + " AND id_grupo = " + id_grupo_T;
-            SqlCommand comando = new SqlCommand(cadena, conexion);
-            int cant;
-            cant = comando.ExecuteNonQuery();
+
+            try
+            {
+                SqlCommand comando = new SqlCommand(cadena, conexion);
+                int cant;
+                cant = comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No es posible modificar fila duplicada");
+            }
+            
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             cboxNombreGrupoPG.Text = "";
             cboxCreadorGrupoPG.Text = "";
 
             muestraDB();
-            comando.Connection.Close();
-            conexion.Close();
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

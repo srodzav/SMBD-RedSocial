@@ -39,12 +39,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtReaccionesPost = new System.Windows.Forms.TextBox();
             this.txtDescripcionPost = new System.Windows.Forms.TextBox();
-            this.cboxTipoPost = new System.Windows.Forms.ComboBox();
             this.cboxAutorPost = new System.Windows.Forms.ComboBox();
             this.lblPersonaPost = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -56,9 +56,9 @@
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Location = new System.Drawing.Point(17, 246);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(1033, 292);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
@@ -68,18 +68,19 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 25);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1012, 260);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtErrores);
             this.groupBox3.Location = new System.Drawing.Point(768, 16);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(283, 223);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
@@ -89,7 +90,7 @@
             // 
             this.txtErrores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtErrores.Location = new System.Drawing.Point(9, 25);
-            this.txtErrores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtErrores.Margin = new System.Windows.Forms.Padding(4);
             this.txtErrores.Multiline = true;
             this.txtErrores.Name = "txtErrores";
             this.txtErrores.ReadOnly = true;
@@ -102,9 +103,9 @@
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.btnAgregar);
             this.groupBox2.Location = new System.Drawing.Point(604, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(156, 223);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -114,29 +115,31 @@
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(9, 159);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(132, 44);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(9, 98);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(132, 42);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(9, 37);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(132, 41);
             this.btnAgregar.TabIndex = 0;
@@ -146,18 +149,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.txtReaccionesPost);
             this.groupBox1.Controls.Add(this.txtDescripcionPost);
-            this.groupBox1.Controls.Add(this.cboxTipoPost);
             this.groupBox1.Controls.Add(this.cboxAutorPost);
             this.groupBox1.Controls.Add(this.lblPersonaPost);
             this.groupBox1.Controls.Add(this.lblTipo);
             this.groupBox1.Controls.Add(this.lblDescripcion);
             this.groupBox1.Controls.Add(this.lblRol);
             this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(579, 223);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -166,7 +169,7 @@
             // txtReaccionesPost
             // 
             this.txtReaccionesPost.Location = new System.Drawing.Point(164, 177);
-            this.txtReaccionesPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReaccionesPost.Margin = new System.Windows.Forms.Padding(4);
             this.txtReaccionesPost.Name = "txtReaccionesPost";
             this.txtReaccionesPost.Size = new System.Drawing.Size(405, 22);
             this.txtReaccionesPost.TabIndex = 16;
@@ -174,26 +177,17 @@
             // txtDescripcionPost
             // 
             this.txtDescripcionPost.Location = new System.Drawing.Point(164, 117);
-            this.txtDescripcionPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcionPost.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcionPost.Multiline = true;
             this.txtDescripcionPost.Name = "txtDescripcionPost";
             this.txtDescripcionPost.Size = new System.Drawing.Size(405, 52);
             this.txtDescripcionPost.TabIndex = 15;
             // 
-            // cboxTipoPost
-            // 
-            this.cboxTipoPost.FormattingEnabled = true;
-            this.cboxTipoPost.Location = new System.Drawing.Point(164, 84);
-            this.cboxTipoPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cboxTipoPost.Name = "cboxTipoPost";
-            this.cboxTipoPost.Size = new System.Drawing.Size(405, 24);
-            this.cboxTipoPost.TabIndex = 14;
-            // 
             // cboxAutorPost
             // 
             this.cboxAutorPost.FormattingEnabled = true;
             this.cboxAutorPost.Location = new System.Drawing.Point(164, 52);
-            this.cboxAutorPost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxAutorPost.Margin = new System.Windows.Forms.Padding(4);
             this.cboxAutorPost.Name = "cboxAutorPost";
             this.cboxAutorPost.Size = new System.Drawing.Size(405, 24);
             this.cboxAutorPost.TabIndex = 13;
@@ -242,6 +236,13 @@
             this.lblRol.TabIndex = 12;
             this.lblRol.Text = "Reacciones:";
             // 
+            // txtTipo
+            // 
+            this.txtTipo.Location = new System.Drawing.Point(164, 85);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(405, 22);
+            this.txtTipo.TabIndex = 17;
+            // 
             // Post
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -251,9 +252,10 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Post";
             this.Text = "Post";
+            this.Load += new System.EventHandler(this.Post_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -282,7 +284,7 @@
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.TextBox txtReaccionesPost;
         private System.Windows.Forms.TextBox txtDescripcionPost;
-        private System.Windows.Forms.ComboBox cboxTipoPost;
         private System.Windows.Forms.ComboBox cboxAutorPost;
+        private System.Windows.Forms.TextBox txtTipo;
     }
 }
