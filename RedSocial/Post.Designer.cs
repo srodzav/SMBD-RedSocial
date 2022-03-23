@@ -44,7 +44,7 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
-            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.txtTipo = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -238,10 +238,15 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.FormattingEnabled = true;
+            this.txtTipo.Items.AddRange(new object[] {
+            "Imagen",
+            "Video"});
             this.txtTipo.Location = new System.Drawing.Point(164, 85);
+            this.txtTipo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(405, 22);
-            this.txtTipo.TabIndex = 17;
+            this.txtTipo.Size = new System.Drawing.Size(405, 24);
+            this.txtTipo.TabIndex = 18;
             // 
             // Post
             // 
@@ -285,6 +290,6 @@
         private System.Windows.Forms.TextBox txtReaccionesPost;
         private System.Windows.Forms.TextBox txtDescripcionPost;
         private System.Windows.Forms.ComboBox cboxAutorPost;
-        private System.Windows.Forms.TextBox txtTipo;
+        private System.Windows.Forms.ComboBox txtTipo;
     }
 }

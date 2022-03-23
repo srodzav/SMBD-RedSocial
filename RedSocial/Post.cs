@@ -48,7 +48,7 @@ namespace RedSocial
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             id_persona = cboxAutorPost.SelectedValue.ToString();
-            tipo = txtTipo.Text;
+            tipo = txtTipo.SelectedItem.ToString();
             descripcion = txtDescripcionPost.Text;
             reacciones = txtReaccionesPost.Text;
             DateTime s = DateTime.Today;
