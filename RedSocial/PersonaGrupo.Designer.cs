@@ -165,6 +165,9 @@
             this.cboxNombreGrupoPG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboxNombreGrupoPG.Name = "cboxNombreGrupoPG";
             this.cboxNombreGrupoPG.Size = new System.Drawing.Size(328, 24);
+            this.cboxNombreGrupoPG.Location = new System.Drawing.Point(166, 80);
+            this.cboxNombreGrupoPG.Name = "cboxNombreGrupoPG";
+            this.cboxNombreGrupoPG.Size = new System.Drawing.Size(247, 21);
             this.cboxNombreGrupoPG.TabIndex = 20;
             // 
             // cboxCreadorGrupoPG
@@ -195,6 +198,7 @@
             this.lblCreador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreador.Name = "lblCreador";
             this.lblCreador.Size = new System.Drawing.Size(138, 25);
+            this.lblCreador.Size = new System.Drawing.Size(111, 20);
             this.lblCreador.TabIndex = 10;
             this.lblCreador.Text = "Administrador:";
             // 

@@ -65,6 +65,7 @@ namespace RedSocial
                 cadena = "INSERT INTO Notificacion (id_persona, id_quien_compartio, mensaje, visto,fecha_notficacion) " +
                     "VALUES (" + id_persona + "," + id_quien_compartio + ",'" + mensaje_txt + "'," + (visto ? "1" : "0") + ",'" + fecharegistro + "')";
                 
+                //MessageBox.Show(cadena);
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 

@@ -37,12 +37,13 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.txtTamano = new System.Windows.Forms.TextBox();
-            this.txtRuta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblRecursoImagen = new System.Windows.Forms.Label();
+            this.btnImagenRecurso = new System.Windows.Forms.Button();
+            this.lblTipoRecurso = new System.Windows.Forms.Label();
+            this.lblTamanoRecurso = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -53,11 +54,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(13, 243);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Location = new System.Drawing.Point(10, 197);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(1033, 292);
+            this.groupBox4.Size = new System.Drawing.Size(775, 237);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Base de Datos";
@@ -65,21 +64,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 25);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1012, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtErrores);
-            this.groupBox3.Location = new System.Drawing.Point(764, 13);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Location = new System.Drawing.Point(573, 11);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(283, 223);
+            this.groupBox3.Size = new System.Drawing.Size(212, 181);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Errores";
@@ -87,12 +83,11 @@
             // txtErrores
             // 
             this.txtErrores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtErrores.Location = new System.Drawing.Point(9, 25);
-            this.txtErrores.Margin = new System.Windows.Forms.Padding(4);
+            this.txtErrores.Location = new System.Drawing.Point(7, 20);
             this.txtErrores.Multiline = true;
             this.txtErrores.Name = "txtErrores";
             this.txtErrores.ReadOnly = true;
-            this.txtErrores.Size = new System.Drawing.Size(264, 190);
+            this.txtErrores.Size = new System.Drawing.Size(199, 155);
             this.txtErrores.TabIndex = 0;
             // 
             // groupBox2
@@ -100,11 +95,9 @@
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Location = new System.Drawing.Point(600, 13);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(450, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(156, 223);
+            this.groupBox2.Size = new System.Drawing.Size(117, 181);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -112,10 +105,9 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(9, 159);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(7, 129);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(132, 44);
+            this.btnEliminar.Size = new System.Drawing.Size(99, 36);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -124,10 +116,9 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(9, 98);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificar.Location = new System.Drawing.Point(7, 80);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(132, 42);
+            this.btnModificar.Size = new System.Drawing.Size(99, 34);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -136,10 +127,9 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(9, 37);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Location = new System.Drawing.Point(7, 30);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(132, 41);
+            this.btnAgregar.Size = new System.Drawing.Size(99, 33);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -147,49 +137,28 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtTipo);
-            this.groupBox1.Controls.Add(this.txtTamano);
-            this.groupBox1.Controls.Add(this.txtRuta);
+            this.groupBox1.Controls.Add(this.lblTamanoRecurso);
+            this.groupBox1.Controls.Add(this.lblTipoRecurso);
+            this.groupBox1.Controls.Add(this.lblRecursoImagen);
+            this.groupBox1.Controls.Add(this.btnImagenRecurso);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(579, 223);
+            this.groupBox1.Size = new System.Drawing.Size(434, 181);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
-            // 
-            // txtTipo
-            // 
-            this.txtTipo.Location = new System.Drawing.Point(130, 56);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(442, 22);
-            this.txtTipo.TabIndex = 5;
-            // 
-            // txtTamano
-            // 
-            this.txtTamano.Location = new System.Drawing.Point(130, 90);
-            this.txtTamano.Name = "txtTamano";
-            this.txtTamano.Size = new System.Drawing.Size(442, 22);
-            this.txtTamano.TabIndex = 4;
-            // 
-            // txtRuta
-            // 
-            this.txtRuta.Location = new System.Drawing.Point(130, 25);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(442, 22);
-            this.txtRuta.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 83);
+            this.label3.Location = new System.Drawing.Point(10, 67);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 29);
+            this.label3.Size = new System.Drawing.Size(80, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tamaño";
             // 
@@ -197,9 +166,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 54);
+            this.label2.Location = new System.Drawing.Point(10, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 29);
+            this.label2.Size = new System.Drawing.Size(48, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tipo";
             // 
@@ -207,21 +177,63 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 25);
+            this.label1.Location = new System.Drawing.Point(10, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 29);
+            this.label1.Size = new System.Drawing.Size(48, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ruta";
             // 
+            // lblRecursoImagen
+            // 
+            this.lblRecursoImagen.AutoSize = true;
+            this.lblRecursoImagen.ForeColor = System.Drawing.Color.Red;
+            this.lblRecursoImagen.Location = new System.Drawing.Point(117, 101);
+            this.lblRecursoImagen.Name = "lblRecursoImagen";
+            this.lblRecursoImagen.Size = new System.Drawing.Size(91, 13);
+            this.lblRecursoImagen.TabIndex = 19;
+            this.lblRecursoImagen.Text = "Imagen sin cargar";
+            // 
+            // btnImagenRecurso
+            // 
+            this.btnImagenRecurso.Location = new System.Drawing.Point(120, 22);
+            this.btnImagenRecurso.Name = "btnImagenRecurso";
+            this.btnImagenRecurso.Size = new System.Drawing.Size(162, 23);
+            this.btnImagenRecurso.TabIndex = 18;
+            this.btnImagenRecurso.Text = "Cargar";
+            this.btnImagenRecurso.UseVisualStyleBackColor = true;
+            this.btnImagenRecurso.Click += new System.EventHandler(this.btnImagenRecurso_Click);
+            // 
+            // lblTipoRecurso
+            // 
+            this.lblTipoRecurso.AutoSize = true;
+            this.lblTipoRecurso.ForeColor = System.Drawing.Color.Black;
+            this.lblTipoRecurso.Location = new System.Drawing.Point(117, 55);
+            this.lblTipoRecurso.Name = "lblTipoRecurso";
+            this.lblTipoRecurso.Size = new System.Drawing.Size(19, 13);
+            this.lblTipoRecurso.TabIndex = 20;
+            this.lblTipoRecurso.Text = "----";
+            // 
+            // lblTamanoRecurso
+            // 
+            this.lblTamanoRecurso.AutoSize = true;
+            this.lblTamanoRecurso.ForeColor = System.Drawing.Color.Black;
+            this.lblTamanoRecurso.Location = new System.Drawing.Point(117, 74);
+            this.lblTamanoRecurso.Name = "lblTamanoRecurso";
+            this.lblTamanoRecurso.Size = new System.Drawing.Size(19, 13);
+            this.lblTamanoRecurso.TabIndex = 21;
+            this.lblTamanoRecurso.Text = "----";
+            // 
             // Recurso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 539);
+            this.ClientSize = new System.Drawing.Size(788, 438);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Recurso";
             this.Text = "Recurso";
             this.Load += new System.EventHandler(this.Recurso_Load);
@@ -247,11 +259,12 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtTamano;
-        private System.Windows.Forms.TextBox txtRuta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTipo;
+        private System.Windows.Forms.Label lblRecursoImagen;
+        private System.Windows.Forms.Button btnImagenRecurso;
+        private System.Windows.Forms.Label lblTamanoRecurso;
+        private System.Windows.Forms.Label lblTipoRecurso;
     }
 }

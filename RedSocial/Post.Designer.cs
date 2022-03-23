@@ -39,6 +39,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtReaccionesPost = new System.Windows.Forms.TextBox();
             this.txtDescripcionPost = new System.Windows.Forms.TextBox();
+            //this.cboxTipoPost = new System.Windows.Forms.ComboBox();
             this.cboxAutorPost = new System.Windows.Forms.ComboBox();
             this.lblPersonaPost = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();

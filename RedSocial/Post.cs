@@ -39,6 +39,8 @@ namespace RedSocial
                 "INNER JOIN Persona AS p " +
                 "ON po.id_persona = p.id_persona;";
 
+            cadena = "SELECT * FROM Post";
+
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);

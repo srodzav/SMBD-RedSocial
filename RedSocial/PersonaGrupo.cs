@@ -47,9 +47,8 @@ namespace RedSocial
         {
             if (cboxNombreGrupoPG.Text != "" && cboxCreadorGrupoPG.Text != "")
             {
-                id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
+                /*id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
                 id_grupo = cboxNombreGrupoPG.SelectedValue.ToString();
-
                 cadena = "INSERT INTO PersonaGrupo (id_persona, id_grupo) " +
                     "VALUES ('" + id_persona + "','" + id_grupo + "')";
                 try
@@ -62,11 +61,14 @@ namespace RedSocial
                     MessageBox.Show("No es posible agregar fila duplicada");
                 }
                 
+                    "VALUES ('" + id_persona + "','" + id_grupo + "') WHERE id_persona";
+                SqlCommand comando = new SqlCommand(cadena, conexion);
+                comando.ExecuteNonQuery();
 
                 cboxNombreGrupoPG.Text = "";
                 cboxCreadorGrupoPG.Text = "";
 
-                muestraDB();
+                muestraDB();*/
             }
         }
 
