@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RedSocial
 {
@@ -22,8 +23,8 @@ namespace RedSocial
 
         public Recurso()
         {
-            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -48,24 +49,20 @@ namespace RedSocial
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            if ( txtRuta.Text != "" &&  txtTipo.Text != "" && txtTamano.Text != "")
+            if (ruta != "")
             {
-                ruta = txtRuta.Text;
-                tipo = txtTipo.Text;
-                tamano = txtTamano.Text;
-                
                 cadena = "INSERT INTO Recurso (ruta, tipo, tamano) " +
-                    "VALUES ('" + ruta + "','" + tipo + "','" + tamano + "')";
+                "VALUES ('" + ruta + "','" + tipo + "','" + tamano + "')";
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
-
-                txtRuta.Text = "";
-                txtTipo.Text = "";
-                txtTamano.Text = "";
-
+                lblTamanoRecurso.Text = "";
+                lblTipoRecurso.Text = "";
+                lblRecursoImagen.ForeColor = System.Drawing.Color.Red;
+                lblRecursoImagen.Text = "Imagen sin cargar";
+                ruta = "";
                 muestraDB();
-                conexion.Close();
             }
+            conexion.Close();
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -78,9 +75,9 @@ namespace RedSocial
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
                 id_recurso = row.Cells[0].Value.ToString();
-                txtRuta.Text = row.Cells[1].Value.ToString();
-                txtTipo.Text = row.Cells[2].Value.ToString();
-                txtTamano.Text = row.Cells[3].Value.ToString();
+                lblRecursoImagen.Text = row.Cells[1].Value.ToString();
+                lblTipoRecurso.Text = row.Cells[2].Value.ToString();
+                lblTamanoRecurso.Text = row.Cells[3].Value.ToString();
             }
         }
 
@@ -89,17 +86,19 @@ namespace RedSocial
             conexion.Open();
             cadena =
                 "UPDATE Recurso SET " +
-                "ruta='" + txtRuta.Text + "', tipo='" +
-                txtTipo.Text + "', tamano='" + txtTamano.Text + "' WHERE id_recurso = " +
+                "ruta='" + lblRecursoImagen.Text + "', tipo='" +
+                lblTipoRecurso.Text + "', tamano='" + lblTamanoRecurso.Text + "' WHERE id_recurso = " +
                 id_recurso;
 
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
 
-            txtRuta.Text = "";
-            txtTipo.Text = "";
-            txtTamano.Text = "";
+            lblTamanoRecurso.Text = "";
+            lblTipoRecurso.Text = "";
+            lblRecursoImagen.ForeColor = System.Drawing.Color.Red;
+            lblRecursoImagen.Text = "Imagen sin cargar";
+            ruta = "";
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
 
@@ -117,14 +116,32 @@ namespace RedSocial
             int cant;
             cant = comando.ExecuteNonQuery();
 
-            txtRuta.Text = "";
-            txtTipo.Text = "";
-            txtTamano.Text = "";
+            //txtRuta.Text = "";
+            //txtTipo.Text = "";
+            //txtTamano.Text = "";
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
 
             muestraDB();
             conexion.Close();
+        }
+
+        private void btnImagenRecurso_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Recurso (JPG,PNG,.MP4)|*.JPG;*.PNG;*.MP4;";
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                ruta = openFileDialog1.FileName;
+                tipo = Path.GetExtension(openFileDialog1.FileName);
+                lblTipoRecurso.Text = tipo;
+                tamano = new FileInfo(openFileDialog1.FileName).Length.ToString();
+                lblTamanoRecurso.Text = tamano;
+                lblRecursoImagen.ForeColor = System.Drawing.Color.Green;
+                lblRecursoImagen.Text = ruta;
+            }
+
         }
     }
 }

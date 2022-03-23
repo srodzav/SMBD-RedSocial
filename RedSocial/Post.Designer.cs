@@ -37,14 +37,14 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtReaccionesPost = new System.Windows.Forms.TextBox();
+            this.txtDescripcionPost = new System.Windows.Forms.TextBox();
+            this.cboxTipoPost = new System.Windows.Forms.ComboBox();
+            this.cboxAutorPost = new System.Windows.Forms.ComboBox();
             this.lblPersonaPost = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
-            this.cboxAutorPost = new System.Windows.Forms.ComboBox();
-            this.cboxTipoPost = new System.Windows.Forms.ComboBox();
-            this.txtDescripcionPost = new System.Windows.Forms.TextBox();
-            this.txtReaccionesPost = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -149,6 +149,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // txtReaccionesPost
+            // 
+            this.txtReaccionesPost.Location = new System.Drawing.Point(123, 144);
+            this.txtReaccionesPost.Name = "txtReaccionesPost";
+            this.txtReaccionesPost.Size = new System.Drawing.Size(305, 20);
+            this.txtReaccionesPost.TabIndex = 16;
+            // 
+            // txtDescripcionPost
+            // 
+            this.txtDescripcionPost.Location = new System.Drawing.Point(123, 95);
+            this.txtDescripcionPost.Multiline = true;
+            this.txtDescripcionPost.Name = "txtDescripcionPost";
+            this.txtDescripcionPost.Size = new System.Drawing.Size(305, 43);
+            this.txtDescripcionPost.TabIndex = 15;
+            // 
+            // cboxTipoPost
+            // 
+            this.cboxTipoPost.FormattingEnabled = true;
+            this.cboxTipoPost.Location = new System.Drawing.Point(123, 68);
+            this.cboxTipoPost.Name = "cboxTipoPost";
+            this.cboxTipoPost.Size = new System.Drawing.Size(305, 21);
+            this.cboxTipoPost.TabIndex = 14;
+            // 
+            // cboxAutorPost
+            // 
+            this.cboxAutorPost.FormattingEnabled = true;
+            this.cboxAutorPost.Location = new System.Drawing.Point(123, 42);
+            this.cboxAutorPost.Name = "cboxAutorPost";
+            this.cboxAutorPost.Size = new System.Drawing.Size(305, 21);
+            this.cboxAutorPost.TabIndex = 13;
+            // 
             // lblPersonaPost
             // 
             this.lblPersonaPost.AutoSize = true;
@@ -189,37 +220,6 @@
             this.lblRol.TabIndex = 12;
             this.lblRol.Text = "Reacciones:";
             // 
-            // cboxAutorPost
-            // 
-            this.cboxAutorPost.FormattingEnabled = true;
-            this.cboxAutorPost.Location = new System.Drawing.Point(123, 42);
-            this.cboxAutorPost.Name = "cboxAutorPost";
-            this.cboxAutorPost.Size = new System.Drawing.Size(305, 21);
-            this.cboxAutorPost.TabIndex = 13;
-            // 
-            // cboxTipoPost
-            // 
-            this.cboxTipoPost.FormattingEnabled = true;
-            this.cboxTipoPost.Location = new System.Drawing.Point(123, 68);
-            this.cboxTipoPost.Name = "cboxTipoPost";
-            this.cboxTipoPost.Size = new System.Drawing.Size(305, 21);
-            this.cboxTipoPost.TabIndex = 14;
-            // 
-            // txtDescripcionPost
-            // 
-            this.txtDescripcionPost.Location = new System.Drawing.Point(123, 95);
-            this.txtDescripcionPost.Multiline = true;
-            this.txtDescripcionPost.Name = "txtDescripcionPost";
-            this.txtDescripcionPost.Size = new System.Drawing.Size(305, 43);
-            this.txtDescripcionPost.TabIndex = 15;
-            // 
-            // txtReaccionesPost
-            // 
-            this.txtReaccionesPost.Location = new System.Drawing.Point(123, 144);
-            this.txtReaccionesPost.Name = "txtReaccionesPost";
-            this.txtReaccionesPost.Size = new System.Drawing.Size(305, 20);
-            this.txtReaccionesPost.TabIndex = 16;
-            // 
             // Post
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +231,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Post";
             this.Text = "Post";
+            this.Load += new System.EventHandler(this.Post_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);

@@ -37,10 +37,10 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboxNombreGrupoPG = new System.Windows.Forms.ComboBox();
             this.cboxCreadorGrupoPG = new System.Windows.Forms.ComboBox();
             this.lblNombreGrupo = new System.Windows.Forms.Label();
             this.lblCreador = new System.Windows.Forms.Label();
-            this.cboxNombreGrupoPG = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -145,6 +145,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // cboxNombreGrupoPG
+            // 
+            this.cboxNombreGrupoPG.FormattingEnabled = true;
+            this.cboxNombreGrupoPG.Location = new System.Drawing.Point(166, 80);
+            this.cboxNombreGrupoPG.Name = "cboxNombreGrupoPG";
+            this.cboxNombreGrupoPG.Size = new System.Drawing.Size(247, 21);
+            this.cboxNombreGrupoPG.TabIndex = 20;
+            // 
             // cboxCreadorGrupoPG
             // 
             this.cboxCreadorGrupoPG.FormattingEnabled = true;
@@ -169,17 +177,9 @@
             this.lblCreador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreador.Location = new System.Drawing.Point(21, 36);
             this.lblCreador.Name = "lblCreador";
-            this.lblCreador.Size = new System.Drawing.Size(70, 20);
+            this.lblCreador.Size = new System.Drawing.Size(111, 20);
             this.lblCreador.TabIndex = 10;
-            this.lblCreador.Text = "Creador:";
-            // 
-            // cboxNombreGrupoPG
-            // 
-            this.cboxNombreGrupoPG.FormattingEnabled = true;
-            this.cboxNombreGrupoPG.Location = new System.Drawing.Point(166, 80);
-            this.cboxNombreGrupoPG.Name = "cboxNombreGrupoPG";
-            this.cboxNombreGrupoPG.Size = new System.Drawing.Size(247, 21);
-            this.cboxNombreGrupoPG.TabIndex = 20;
+            this.lblCreador.Text = "Administrador:";
             // 
             // PersonaGrupo
             // 

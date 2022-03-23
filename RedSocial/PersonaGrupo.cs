@@ -48,9 +48,8 @@ namespace RedSocial
             {
                 id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
                 id_grupo = cboxNombreGrupoPG.SelectedValue.ToString();
-
                 cadena = "INSERT INTO PersonaGrupo (id_persona, id_grupo) " +
-                    "VALUES ('" + id_persona + "','" + id_grupo + "')";
+                    "VALUES ('" + id_persona + "','" + id_grupo + "') WHERE id_persona";
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 

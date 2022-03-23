@@ -32,10 +32,38 @@ namespace RedSocial
             //    "INNER JOIN Persona AS P " +
             //    "ON A.id_creador = P.id_persona;";
 
+            cadena = "SELECT * FROM Post";
+
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
+        }
+
+        private void Post_Load(object sender, EventArgs e)
+        {
+            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
+            {
+                //Fill the DataTable with records from Table.
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                //Insert the Default Item to DataTable.
+                DataRow row = dt.NewRow();
+                row[0] = 0;
+                dt.Rows.InsertAt(row, 0);
+
+                //Assign DataTable as DataSource.
+                cboxAutorPost.DataSource = dt;
+
+                dt.Columns.Add(
+                "name",
+                typeof(string),
+                "id_persona + ' - ' + nombre");
+
+                cboxAutorPost.DisplayMember = "name";
+                cboxAutorPost.ValueMember = "id_persona";
+            }
         }
     }
 }

@@ -55,5 +55,10 @@ namespace RedSocial
         {
             new PersonaGrupo().Show();
         }
+
+        private void btnComentario_Click(object sender, EventArgs e)
+        {
+            new Comentario().Show();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace RedSocial
 {
-    partial class Notificacion
+    partial class Comentario
     {
         /// <summary>
         /// Required designer variable.
@@ -37,13 +37,12 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbVisto = new System.Windows.Forms.CheckBox();
-            this.mensaje = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboxQuienCompartio = new System.Windows.Forms.ComboBox();
+            this.txtComentario = new System.Windows.Forms.TextBox();
+            this.cboxPost = new System.Windows.Forms.ComboBox();
             this.cboxPersona = new System.Windows.Forms.ComboBox();
-            this.lblAgregar = new System.Windows.Forms.Label();
-            this.lblidAmigo = new System.Windows.Forms.Label();
+            this.lblPersonaComentario = new System.Windows.Forms.Label();
+            this.lblPostComentario = new System.Windows.Forms.Label();
+            this.lblComentario = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -54,7 +53,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(10, 199);
+            this.groupBox4.Location = new System.Drawing.Point(13, 200);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(775, 237);
             this.groupBox4.TabIndex = 11;
@@ -68,12 +67,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtErrores);
-            this.groupBox3.Location = new System.Drawing.Point(574, 11);
+            this.groupBox3.Location = new System.Drawing.Point(576, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(212, 181);
             this.groupBox3.TabIndex = 10;
@@ -95,7 +93,7 @@
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Location = new System.Drawing.Point(451, 11);
+            this.groupBox2.Location = new System.Drawing.Point(453, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(117, 181);
             this.groupBox2.TabIndex = 9;
@@ -137,99 +135,85 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbVisto);
-            this.groupBox1.Controls.Add(this.mensaje);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cboxQuienCompartio);
+            this.groupBox1.Controls.Add(this.txtComentario);
+            this.groupBox1.Controls.Add(this.cboxPost);
             this.groupBox1.Controls.Add(this.cboxPersona);
-            this.groupBox1.Controls.Add(this.lblAgregar);
-            this.groupBox1.Controls.Add(this.lblidAmigo);
-            this.groupBox1.Location = new System.Drawing.Point(10, 11);
+            this.groupBox1.Controls.Add(this.lblPersonaComentario);
+            this.groupBox1.Controls.Add(this.lblPostComentario);
+            this.groupBox1.Controls.Add(this.lblComentario);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(434, 181);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
-            // cbVisto
+            // txtComentario
             // 
-            this.cbVisto.AutoSize = true;
-            this.cbVisto.Location = new System.Drawing.Point(134, 111);
-            this.cbVisto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cbVisto.Name = "cbVisto";
-            this.cbVisto.Size = new System.Drawing.Size(49, 17);
-            this.cbVisto.TabIndex = 15;
-            this.cbVisto.Text = "Visto";
-            this.cbVisto.UseVisualStyleBackColor = true;
+            this.txtComentario.Location = new System.Drawing.Point(127, 92);
+            this.txtComentario.Multiline = true;
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(301, 83);
+            this.txtComentario.TabIndex = 14;
             // 
-            // mensaje
+            // cboxPost
             // 
-            this.mensaje.Location = new System.Drawing.Point(134, 81);
-            this.mensaje.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.mensaje.Name = "mensaje";
-            this.mensaje.Size = new System.Drawing.Size(285, 20);
-            this.mensaje.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Mensaje";
-            // 
-            // cboxQuienCompartio
-            // 
-            this.cboxQuienCompartio.FormattingEnabled = true;
-            this.cboxQuienCompartio.Location = new System.Drawing.Point(134, 54);
-            this.cboxQuienCompartio.Name = "cboxQuienCompartio";
-            this.cboxQuienCompartio.Size = new System.Drawing.Size(285, 21);
-            this.cboxQuienCompartio.TabIndex = 12;
+            this.cboxPost.FormattingEnabled = true;
+            this.cboxPost.Location = new System.Drawing.Point(127, 65);
+            this.cboxPost.Name = "cboxPost";
+            this.cboxPost.Size = new System.Drawing.Size(301, 21);
+            this.cboxPost.TabIndex = 13;
             // 
             // cboxPersona
             // 
             this.cboxPersona.FormattingEnabled = true;
-            this.cboxPersona.Location = new System.Drawing.Point(134, 27);
+            this.cboxPersona.Location = new System.Drawing.Point(127, 38);
             this.cboxPersona.Name = "cboxPersona";
-            this.cboxPersona.Size = new System.Drawing.Size(285, 21);
-            this.cboxPersona.TabIndex = 11;
+            this.cboxPersona.Size = new System.Drawing.Size(301, 21);
+            this.cboxPersona.TabIndex = 12;
             // 
-            // lblAgregar
+            // lblPersonaComentario
             // 
-            this.lblAgregar.AutoSize = true;
-            this.lblAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgregar.Location = new System.Drawing.Point(6, 52);
-            this.lblAgregar.Name = "lblAgregar";
-            this.lblAgregar.Size = new System.Drawing.Size(126, 20);
-            this.lblAgregar.TabIndex = 10;
-            this.lblAgregar.Text = "Quien comparte:";
+            this.lblPersonaComentario.AutoSize = true;
+            this.lblPersonaComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonaComentario.Location = new System.Drawing.Point(20, 40);
+            this.lblPersonaComentario.Name = "lblPersonaComentario";
+            this.lblPersonaComentario.Size = new System.Drawing.Size(72, 20);
+            this.lblPersonaComentario.TabIndex = 9;
+            this.lblPersonaComentario.Text = "Persona:";
             // 
-            // lblidAmigo
+            // lblPostComentario
             // 
-            this.lblidAmigo.AutoSize = true;
-            this.lblidAmigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblidAmigo.Location = new System.Drawing.Point(6, 25);
-            this.lblidAmigo.Name = "lblidAmigo";
-            this.lblidAmigo.Size = new System.Drawing.Size(72, 20);
-            this.lblidAmigo.TabIndex = 9;
-            this.lblidAmigo.Text = "Persona:";
+            this.lblPostComentario.AutoSize = true;
+            this.lblPostComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPostComentario.Location = new System.Drawing.Point(20, 66);
+            this.lblPostComentario.Name = "lblPostComentario";
+            this.lblPostComentario.Size = new System.Drawing.Size(45, 20);
+            this.lblPostComentario.TabIndex = 10;
+            this.lblPostComentario.Text = "Post:";
             // 
-            // Notificacion
+            // lblComentario
+            // 
+            this.lblComentario.AutoSize = true;
+            this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComentario.Location = new System.Drawing.Point(20, 93);
+            this.lblComentario.Name = "lblComentario";
+            this.lblComentario.Size = new System.Drawing.Size(95, 20);
+            this.lblComentario.TabIndex = 11;
+            this.lblComentario.Text = "Comentario:";
+            // 
+            // Comentario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 445);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Notificacion";
-            this.Text = "Notificación";
-            this.Load += new System.EventHandler(this.Notificacion_Load);
+            this.Name = "Comentario";
+            this.Text = "Comentario";
+            this.Load += new System.EventHandler(this.Comentario_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -252,12 +236,11 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox mensaje;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboxQuienCompartio;
+        private System.Windows.Forms.Label lblPersonaComentario;
+        private System.Windows.Forms.Label lblPostComentario;
+        private System.Windows.Forms.Label lblComentario;
+        private System.Windows.Forms.ComboBox cboxPost;
         private System.Windows.Forms.ComboBox cboxPersona;
-        private System.Windows.Forms.Label lblAgregar;
-        private System.Windows.Forms.Label lblidAmigo;
-        private System.Windows.Forms.CheckBox cbVisto;
+        private System.Windows.Forms.TextBox txtComentario;
     }
 }

@@ -35,6 +35,7 @@
             this.btnRecurso = new System.Windows.Forms.Button();
             this.btnPost = new System.Windows.Forms.Button();
             this.btnPersonaGrupo = new System.Windows.Forms.Button();
+            this.btnComentario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPersona
@@ -61,9 +62,8 @@
             // 
             // btnNotificacion
             // 
-            this.btnNotificacion.Location = new System.Drawing.Point(13, 76);
-            this.btnNotificacion.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotificacion.Location = new System.Drawing.Point(10, 62);
+            this.btnNotificacion.Margin = new System.Windows.Forms.Padding(4);
             this.btnNotificacion.Name = "btnNotificacion";
             this.btnNotificacion.Size = new System.Drawing.Size(96, 58);
             this.btnNotificacion.TabIndex = 2;
@@ -73,9 +73,8 @@
             // 
             // btnGrupo
             // 
-            this.btnGrupo.Location = new System.Drawing.Point(283, 12);
-            this.btnGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupo.Location = new System.Drawing.Point(212, 10);
+            this.btnGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupo.Name = "btnGrupo";
             this.btnGrupo.Size = new System.Drawing.Size(97, 47);
             this.btnGrupo.TabIndex = 2;
@@ -85,18 +84,19 @@
             // 
             // btnRecurso
             // 
-            this.btnRecurso.Location = new System.Drawing.Point(148, 76);
+            this.btnRecurso.Location = new System.Drawing.Point(110, 64);
             this.btnRecurso.Name = "btnRecurso";
-            this.btnRecurso.Size = new System.Drawing.Size(128, 71);
+            this.btnRecurso.Size = new System.Drawing.Size(97, 56);
             this.btnRecurso.TabIndex = 3;
             this.btnRecurso.Text = "Recurso";
             this.btnRecurso.UseVisualStyleBackColor = true;
             this.btnRecurso.Click += new System.EventHandler(this.btnRecurso_Click);
+            // 
             // btnPost
             // 
-            this.btnPost.Location = new System.Drawing.Point(316, 118);
+            this.btnPost.Location = new System.Drawing.Point(212, 64);
             this.btnPost.Name = "btnPost";
-            this.btnPost.Size = new System.Drawing.Size(97, 58);
+            this.btnPost.Size = new System.Drawing.Size(97, 56);
             this.btnPost.TabIndex = 3;
             this.btnPost.Text = "Post";
             this.btnPost.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             // 
             // btnPersonaGrupo
             // 
-            this.btnPersonaGrupo.Location = new System.Drawing.Point(315, 10);
+            this.btnPersonaGrupo.Location = new System.Drawing.Point(316, 10);
             this.btnPersonaGrupo.Name = "btnPersonaGrupo";
             this.btnPersonaGrupo.Size = new System.Drawing.Size(97, 47);
             this.btnPersonaGrupo.TabIndex = 4;
@@ -112,13 +112,23 @@
             this.btnPersonaGrupo.UseVisualStyleBackColor = true;
             this.btnPersonaGrupo.Click += new System.EventHandler(this.btnPersonaGrupo_Click);
             // 
+            // btnComentario
+            // 
+            this.btnComentario.Location = new System.Drawing.Point(316, 64);
+            this.btnComentario.Name = "btnComentario";
+            this.btnComentario.Size = new System.Drawing.Size(97, 56);
+            this.btnComentario.TabIndex = 5;
+            this.btnComentario.Text = "Comentario";
+            this.btnComentario.UseVisualStyleBackColor = true;
+            this.btnComentario.Click += new System.EventHandler(this.btnComentario_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.btnRecurso);
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnComentario);
+            this.Controls.Add(this.btnRecurso);
             this.Controls.Add(this.btnPersonaGrupo);
             this.Controls.Add(this.btnPost);
             this.Controls.Add(this.btnNotificacion);
@@ -141,6 +151,7 @@
         private System.Windows.Forms.Button btnRecurso;
         private System.Windows.Forms.Button btnPost;
         private System.Windows.Forms.Button btnPersonaGrupo;
+        private System.Windows.Forms.Button btnComentario;
     }
 }
 
