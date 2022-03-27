@@ -67,6 +67,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(759, 211);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // groupBox3
             // 
@@ -163,6 +164,7 @@
             this.cboxPost.Name = "cboxPost";
             this.cboxPost.Size = new System.Drawing.Size(301, 21);
             this.cboxPost.TabIndex = 13;
+            this.cboxPost.SelectedValueChanged += new System.EventHandler(this.cboxPost_SelectedValueChanged);
             // 
             // cboxPersona
             // 
@@ -171,6 +173,7 @@
             this.cboxPersona.Name = "cboxPersona";
             this.cboxPersona.Size = new System.Drawing.Size(301, 21);
             this.cboxPersona.TabIndex = 12;
+            this.cboxPersona.SelectedValueChanged += new System.EventHandler(this.cboxPersona_SelectedValueChanged);
             // 
             // lblPersonaComentario
             // 
