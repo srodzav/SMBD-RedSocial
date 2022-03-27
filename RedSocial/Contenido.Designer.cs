@@ -1,6 +1,6 @@
 ﻿namespace RedSocial
 {
-    partial class PersonaGrupo
+    partial class Contenido
     {
         /// <summary>
         /// Required designer variable.
@@ -51,12 +51,12 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(17, 246);
+            this.groupBox4.Location = new System.Drawing.Point(32, 256);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(1033, 292);
-            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Base de Datos";
             // 
@@ -73,12 +73,12 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtErrores);
-            this.groupBox3.Location = new System.Drawing.Point(768, 16);
+            this.groupBox3.Location = new System.Drawing.Point(783, 26);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(283, 223);
-            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Errores";
             // 
@@ -98,12 +98,12 @@
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnModificar);
             this.groupBox2.Controls.Add(this.btnAgregar);
-            this.groupBox2.Location = new System.Drawing.Point(604, 16);
+            this.groupBox2.Location = new System.Drawing.Point(619, 26);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(156, 223);
-            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
             // 
@@ -149,31 +149,31 @@
             this.groupBox1.Controls.Add(this.cboxCreadorGrupoPG);
             this.groupBox1.Controls.Add(this.lblNombreGrupo);
             this.groupBox1.Controls.Add(this.lblCreador);
-            this.groupBox1.Location = new System.Drawing.Point(17, 16);
+            this.groupBox1.Location = new System.Drawing.Point(32, 26);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(579, 223);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
             // cboxNombreGrupoPG
             // 
             this.cboxNombreGrupoPG.FormattingEnabled = true;
-            this.cboxNombreGrupoPG.Location = new System.Drawing.Point(221, 105);
+            this.cboxNombreGrupoPG.Location = new System.Drawing.Point(128, 105);
             this.cboxNombreGrupoPG.Margin = new System.Windows.Forms.Padding(4);
             this.cboxNombreGrupoPG.Name = "cboxNombreGrupoPG";
-            this.cboxNombreGrupoPG.Size = new System.Drawing.Size(329, 24);
+            this.cboxNombreGrupoPG.Size = new System.Drawing.Size(443, 24);
             this.cboxNombreGrupoPG.TabIndex = 20;
             // 
             // cboxCreadorGrupoPG
             // 
             this.cboxCreadorGrupoPG.FormattingEnabled = true;
-            this.cboxCreadorGrupoPG.Location = new System.Drawing.Point(221, 48);
+            this.cboxCreadorGrupoPG.Location = new System.Drawing.Point(128, 48);
             this.cboxCreadorGrupoPG.Margin = new System.Windows.Forms.Padding(4);
             this.cboxCreadorGrupoPG.Name = "cboxCreadorGrupoPG";
-            this.cboxCreadorGrupoPG.Size = new System.Drawing.Size(329, 24);
+            this.cboxCreadorGrupoPG.Size = new System.Drawing.Size(443, 24);
             this.cboxCreadorGrupoPG.TabIndex = 19;
             // 
             // lblNombreGrupo
@@ -183,9 +183,9 @@
             this.lblNombreGrupo.Location = new System.Drawing.Point(27, 101);
             this.lblNombreGrupo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreGrupo.Name = "lblNombreGrupo";
-            this.lblNombreGrupo.Size = new System.Drawing.Size(173, 25);
+            this.lblNombreGrupo.Size = new System.Drawing.Size(90, 25);
             this.lblNombreGrupo.TabIndex = 9;
-            this.lblNombreGrupo.Text = "Nombre del grupo:";
+            this.lblNombreGrupo.Text = "Recurso:";
             // 
             // lblCreador
             // 
@@ -194,23 +194,22 @@
             this.lblCreador.Location = new System.Drawing.Point(28, 44);
             this.lblCreador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreador.Name = "lblCreador";
-            this.lblCreador.Size = new System.Drawing.Size(138, 25);
+            this.lblCreador.Size = new System.Drawing.Size(57, 25);
             this.lblCreador.TabIndex = 10;
-            this.lblCreador.Text = "Administrador:";
+            this.lblCreador.Text = "Post:";
             // 
-            // PersonaGrupo
+            // Contenido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1099, 574);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "PersonaGrupo";
-            this.Text = "PersonaGrupo";
-            this.Load += new System.EventHandler(this.PersonaGrupo_Load);
+            this.Name = "Contenido";
+            this.Text = "Contenido";
+            this.Load += new System.EventHandler(this.Contenido_Load);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -233,9 +232,9 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cboxNombreGrupoPG;
         private System.Windows.Forms.ComboBox cboxCreadorGrupoPG;
         private System.Windows.Forms.Label lblNombreGrupo;
         private System.Windows.Forms.Label lblCreador;
-        private System.Windows.Forms.ComboBox cboxNombreGrupoPG;
     }
 }

@@ -60,5 +60,15 @@ namespace RedSocial
         {
             new Comentario().Show();
         }
+
+        private void btnRec_Click(object sender, EventArgs e)
+        {
+            new Recurso().Show();
+        }
+
+        private void btnContenido_Click(object sender, EventArgs e)
+        {
+            new Contenido().Show();
+        }
     }
 }
