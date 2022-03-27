@@ -23,8 +23,8 @@ namespace RedSocial
 
         public Comentario()
         {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
@@ -133,6 +133,7 @@ namespace RedSocial
 
         private void cboxPersona_SelectedValueChanged(object sender, EventArgs e)
         {
+            cboxPost.Items.Clear();
             id_persona = cboxPersona.Text;
             cadena = $"SELECT id_persona FROM Persona WHERE nombre_red_social = '{id_persona}'";
             SqlCommand sqlCmd = new SqlCommand(cadena, conexion);
@@ -157,7 +158,6 @@ namespace RedSocial
         
         private void cboxPost_SelectedValueChanged(object sender, EventArgs e)
         {
-            cboxPost.Items.Clear();
             id_post = cboxPost.Text;
             cadena = $"SELECT id_post FROM Post WHERE descripcion = '{id_post}'";
             SqlCommand sqlCmd = new SqlCommand(cadena, conexion);
