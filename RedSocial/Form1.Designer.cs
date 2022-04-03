@@ -38,14 +38,15 @@
             this.btnComentario = new System.Windows.Forms.Button();
             this.btnContenido = new System.Windows.Forms.Button();
             this.compartir = new System.Windows.Forms.Button();
+            this.btnReaccion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPersona
             // 
-            this.btnPersona.Location = new System.Drawing.Point(12, 12);
-            this.btnPersona.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPersona.Location = new System.Drawing.Point(9, 10);
+            this.btnPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPersona.Name = "btnPersona";
-            this.btnPersona.Size = new System.Drawing.Size(129, 58);
+            this.btnPersona.Size = new System.Drawing.Size(97, 47);
             this.btnPersona.TabIndex = 0;
             this.btnPersona.Text = "Persona";
             this.btnPersona.UseVisualStyleBackColor = true;
@@ -53,10 +54,10 @@
             // 
             // btnAmigo
             // 
-            this.btnAmigo.Location = new System.Drawing.Point(147, 12);
-            this.btnAmigo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAmigo.Location = new System.Drawing.Point(110, 10);
+            this.btnAmigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAmigo.Name = "btnAmigo";
-            this.btnAmigo.Size = new System.Drawing.Size(129, 58);
+            this.btnAmigo.Size = new System.Drawing.Size(97, 47);
             this.btnAmigo.TabIndex = 1;
             this.btnAmigo.Text = "Amigo";
             this.btnAmigo.UseVisualStyleBackColor = true;
@@ -64,10 +65,9 @@
             // 
             // btnNotificacion
             // 
-            this.btnNotificacion.Location = new System.Drawing.Point(10, 62);
-            this.btnNotificacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNotificacion.Location = new System.Drawing.Point(9, 62);
             this.btnNotificacion.Name = "btnNotificacion";
-            this.btnNotificacion.Size = new System.Drawing.Size(128, 71);
+            this.btnNotificacion.Size = new System.Drawing.Size(97, 47);
             this.btnNotificacion.TabIndex = 2;
             this.btnNotificacion.Text = "Notificacion";
             this.btnNotificacion.UseVisualStyleBackColor = true;
@@ -76,9 +76,8 @@
             // btnGrupo
             // 
             this.btnGrupo.Location = new System.Drawing.Point(212, 10);
-            this.btnGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrupo.Name = "btnGrupo";
-            this.btnGrupo.Size = new System.Drawing.Size(129, 58);
+            this.btnGrupo.Size = new System.Drawing.Size(97, 47);
             this.btnGrupo.TabIndex = 2;
             this.btnGrupo.Text = "Grupo";
             this.btnGrupo.UseVisualStyleBackColor = true;
@@ -86,10 +85,9 @@
             // 
             // btnRecurso
             // 
-            this.btnRecurso.Location = new System.Drawing.Point(110, 64);
-            this.btnRecurso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRecurso.Location = new System.Drawing.Point(112, 62);
             this.btnRecurso.Name = "btnRecurso";
-            this.btnRecurso.Size = new System.Drawing.Size(97, 56);
+            this.btnRecurso.Size = new System.Drawing.Size(95, 47);
             this.btnRecurso.TabIndex = 3;
             this.btnRecurso.Text = "Recurso";
             this.btnRecurso.UseVisualStyleBackColor = true;
@@ -97,10 +95,9 @@
             // 
             // btnPost
             // 
-            this.btnPost.Location = new System.Drawing.Point(212, 64);
-            this.btnPost.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPost.Location = new System.Drawing.Point(213, 62);
             this.btnPost.Name = "btnPost";
-            this.btnPost.Size = new System.Drawing.Size(97, 56);
+            this.btnPost.Size = new System.Drawing.Size(96, 47);
             this.btnPost.TabIndex = 3;
             this.btnPost.Text = "Post";
             this.btnPost.UseVisualStyleBackColor = true;
@@ -108,10 +105,9 @@
             // 
             // btnPersonaGrupo
             // 
-            this.btnPersonaGrupo.Location = new System.Drawing.Point(316, 10);
-            this.btnPersonaGrupo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPersonaGrupo.Location = new System.Drawing.Point(315, 10);
             this.btnPersonaGrupo.Name = "btnPersonaGrupo";
-            this.btnPersonaGrupo.Size = new System.Drawing.Size(129, 58);
+            this.btnPersonaGrupo.Size = new System.Drawing.Size(97, 47);
             this.btnPersonaGrupo.TabIndex = 4;
             this.btnPersonaGrupo.Text = "Persona-Grupo";
             this.btnPersonaGrupo.UseVisualStyleBackColor = true;
@@ -119,9 +115,10 @@
             // 
             // btnComentario
             // 
-            this.btnComentario.Location = new System.Drawing.Point(316, 64);
+            this.btnComentario.Location = new System.Drawing.Point(315, 62);
+            this.btnComentario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnComentario.Name = "btnComentario";
-            this.btnComentario.Size = new System.Drawing.Size(97, 56);
+            this.btnComentario.Size = new System.Drawing.Size(97, 47);
             this.btnComentario.TabIndex = 5;
             this.btnComentario.Text = "Comentario";
             this.btnComentario.UseVisualStyleBackColor = true;
@@ -129,9 +126,10 @@
             // 
             // btnContenido
             // 
-            this.btnContenido.Location = new System.Drawing.Point(12, 168);
+            this.btnContenido.Location = new System.Drawing.Point(9, 114);
+            this.btnContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnContenido.Name = "btnContenido";
-            this.btnContenido.Size = new System.Drawing.Size(97, 56);
+            this.btnContenido.Size = new System.Drawing.Size(97, 46);
             this.btnContenido.TabIndex = 6;
             this.btnContenido.Text = "Contenido";
             this.btnContenido.UseVisualStyleBackColor = true;
@@ -139,19 +137,31 @@
             // 
             // compartir
             // 
-            this.compartir.Location = new System.Drawing.Point(115, 168);
+            this.compartir.Location = new System.Drawing.Point(112, 114);
+            this.compartir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.compartir.Name = "compartir";
-            this.compartir.Size = new System.Drawing.Size(97, 56);
+            this.compartir.Size = new System.Drawing.Size(95, 46);
             this.compartir.TabIndex = 7;
             this.compartir.Text = "Compartir";
             this.compartir.UseVisualStyleBackColor = true;
             this.compartir.Click += new System.EventHandler(this.compartir_Click);
             // 
+            // btnReaccion
+            // 
+            this.btnReaccion.Location = new System.Drawing.Point(213, 114);
+            this.btnReaccion.Name = "btnReaccion";
+            this.btnReaccion.Size = new System.Drawing.Size(96, 46);
+            this.btnReaccion.TabIndex = 8;
+            this.btnReaccion.Text = "Reaccion";
+            this.btnReaccion.UseVisualStyleBackColor = true;
+            this.btnReaccion.Click += new System.EventHandler(this.btnReaccion_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnReaccion);
             this.Controls.Add(this.compartir);
             this.Controls.Add(this.btnContenido);
             this.Controls.Add(this.btnComentario);
@@ -162,7 +172,6 @@
             this.Controls.Add(this.btnGrupo);
             this.Controls.Add(this.btnAmigo);
             this.Controls.Add(this.btnPersona);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "SMBD Red Social";
             this.ResumeLayout(false);
@@ -181,6 +190,7 @@
         private System.Windows.Forms.Button btnComentario;
         private System.Windows.Forms.Button btnContenido;
         private System.Windows.Forms.Button compartir;
+        private System.Windows.Forms.Button btnReaccion;
     }
 }
 
