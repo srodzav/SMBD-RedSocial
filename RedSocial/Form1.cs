@@ -70,5 +70,10 @@ namespace RedSocial
         {
             new Contenido().Show();
         }
+
+        private void compartir_Click(object sender, EventArgs e)
+        {
+            new Compartir().Show();
+        }
     }
 }

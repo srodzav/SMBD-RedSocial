@@ -37,6 +37,7 @@
             this.btnPersonaGrupo = new System.Windows.Forms.Button();
             this.btnComentario = new System.Windows.Forms.Button();
             this.btnContenido = new System.Windows.Forms.Button();
+            this.compartir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPersona
@@ -136,11 +137,22 @@
             this.btnContenido.UseVisualStyleBackColor = true;
             this.btnContenido.Click += new System.EventHandler(this.btnContenido_Click);
             // 
+            // compartir
+            // 
+            this.compartir.Location = new System.Drawing.Point(115, 168);
+            this.compartir.Name = "compartir";
+            this.compartir.Size = new System.Drawing.Size(97, 56);
+            this.compartir.TabIndex = 7;
+            this.compartir.Text = "Compartir";
+            this.compartir.UseVisualStyleBackColor = true;
+            this.compartir.Click += new System.EventHandler(this.compartir_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.compartir);
             this.Controls.Add(this.btnContenido);
             this.Controls.Add(this.btnComentario);
             this.Controls.Add(this.btnRecurso);
@@ -168,6 +180,7 @@
         private System.Windows.Forms.Button btnPersonaGrupo;
         private System.Windows.Forms.Button btnComentario;
         private System.Windows.Forms.Button btnContenido;
+        private System.Windows.Forms.Button compartir;
     }
 }
 

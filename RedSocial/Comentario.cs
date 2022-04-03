@@ -16,8 +16,8 @@ namespace RedSocial
         SqlConnection conexion;
         string cadena;
         string id_comentario;
-        string id_post; int id_postt;
-        string id_persona; int id_personaa;
+        string id_postt;
+        string id_personaa;
         string comentario;
         string fecha_comentario;
 
@@ -36,19 +36,17 @@ namespace RedSocial
             conexion.Open();
             if (cboxPersona.Text != "" && cboxPost.Text != "" && txtComentario.Text != "")
             {
-                MessageBox.Show("id_post: " + id_post + ", id_persona: " + id_persona);
-                cadena = $"SELECT id_persona FROM Persona WHERE nombre_red_social = '{id_persona}'";
-                SqlCommand sqlCmd = new SqlCommand(cadena, conexion);
-                id_postt = Int32.Parse(id_post);
-                id_personaa = Int32.Parse(id_persona);
+                id_postt = cboxPost.SelectedValue.ToString();
+                id_personaa = cboxPersona.SelectedValue.ToString();
                 comentario = txtComentario.Text;
-                MessageBox.Show(id_personaa + ", " + id_postt + ", " + comentario);
+
                 DateTime s = DateTime.Today;
                 fecha_comentario = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
                 cadena = "INSERT INTO Comentario (id_post, id_persona, comentario, fecha_comentario) " +
                     "VALUES ('" + id_postt + "','" + id_personaa + "','" + comentario + "','" + fecha_comentario + "')";
 
+                
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
 
@@ -62,6 +60,9 @@ namespace RedSocial
                 cboxPost.Text = "";
                 cboxPersona.Text = "";
                 txtComentario.Text = "";
+
+                muestraDB();
+                conexion.Close();
             }
         }
 
@@ -112,14 +113,53 @@ namespace RedSocial
 
         private void Comentario_Load(object sender, EventArgs e)
         {
-            SqlCommand sqlCmd = new SqlCommand("SELECT * FROM Persona", conexion);
+            /*SqlCommand sqlCmd = new SqlCommand("SELECT * FROM Persona", conexion);
             conexion.Open();
             SqlDataReader sqlReader = sqlCmd.ExecuteReader();
             while(sqlReader.Read())
             {
                 cboxPersona.Items.Add(sqlReader["nombre_red_social"].ToString());
             }
-            conexion.Close();
+            conexion.Close();*/
+            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT id_persona,nombre FROM Persona", conexion))
+            {
+                //Fill the DataTable with records from Table.
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                //Insert the Default Item to DataTable.
+                DataRow row = dt.NewRow();
+                row[0] = 0;
+                dt.Rows.InsertAt(row, 0);
+
+                cboxPersona.DataSource = dt;
+                dt.Columns.Add(
+                "name",
+                typeof(string),
+                "id_persona + ' - ' + nombre");
+
+                cboxPersona.DisplayMember = "name";
+                cboxPersona.ValueMember = "id_persona";
+            }
+            using (SqlDataAdapter sda = new SqlDataAdapter("SELECT po.id_post as id_post, pe.nombre as nombre, po.tipo as tipo, po.fecha_post as fecha FROM Post po INNER JOIN Persona pe ON Po.id_persona = Pe.id_persona", conexion))
+            {
+                //Fill the DataTable with records from Table.
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                //Insert the Default Item to DataTable.
+                DataRow row = dt.NewRow();
+                row[0] = 0;
+                dt.Rows.InsertAt(row, 0);
+                cboxPost.DataSource = dt;
+                dt.Columns.Add(
+                "name",
+                typeof(string),
+                "nombre + ' - ' + tipo + ' - ' + fecha");
+
+                cboxPost.DisplayMember = "name";
+                cboxPost.ValueMember = "id_post";
+            }
         }
 
         public void muestraDB()
@@ -133,7 +173,7 @@ namespace RedSocial
 
         private void cboxPersona_SelectedValueChanged(object sender, EventArgs e)
         {
-            cboxPost.Items.Clear();
+            /*cboxPost.Items.Clear();
             id_persona = cboxPersona.Text;
             cadena = $"SELECT id_persona FROM Persona WHERE nombre_red_social = '{id_persona}'";
             SqlCommand sqlCmd = new SqlCommand(cadena, conexion);
@@ -153,12 +193,12 @@ namespace RedSocial
             {
                 cboxPost.Items.Add(sqlReader["descripcion"].ToString());
             }
-            conexion.Close();
+            conexion.Close();*/
         }
         
         private void cboxPost_SelectedValueChanged(object sender, EventArgs e)
-        {
-            id_post = cboxPost.Text;
+        { 
+            /*id_post = cboxPost.Text;
             cadena = $"SELECT id_post FROM Post WHERE descripcion = '{id_post}'";
             SqlCommand sqlCmd = new SqlCommand(cadena, conexion);
             conexion.Open();
@@ -167,7 +207,7 @@ namespace RedSocial
             {
                 id_post = (sqlReader["id_post"].ToString());
             }
-            conexion.Close();
+            conexion.Close();*/
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
