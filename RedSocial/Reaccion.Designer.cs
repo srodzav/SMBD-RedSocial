@@ -37,14 +37,14 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboxTipo = new System.Windows.Forms.ComboBox();
+            this.cboxAutor = new System.Windows.Forms.ComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
             this.cboxPost = new System.Windows.Forms.ComboBox();
             this.cboxPersona = new System.Windows.Forms.ComboBox();
             this.lblPersonaComentario = new System.Windows.Forms.Label();
             this.lblPostComentario = new System.Windows.Forms.Label();
             this.lblComentario = new System.Windows.Forms.Label();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.cboxAutor = new System.Windows.Forms.ComboBox();
-            this.cboxTipo = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -112,6 +112,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -122,6 +123,7 @@
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -132,6 +134,7 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox1
             // 
@@ -149,6 +152,32 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
+            // 
+            // cboxTipo
+            // 
+            this.cboxTipo.FormattingEnabled = true;
+            this.cboxTipo.Location = new System.Drawing.Point(127, 120);
+            this.cboxTipo.Name = "cboxTipo";
+            this.cboxTipo.Size = new System.Drawing.Size(301, 21);
+            this.cboxTipo.TabIndex = 16;
+            // 
+            // cboxAutor
+            // 
+            this.cboxAutor.FormattingEnabled = true;
+            this.cboxAutor.Location = new System.Drawing.Point(127, 92);
+            this.cboxAutor.Name = "cboxAutor";
+            this.cboxAutor.Size = new System.Drawing.Size(301, 21);
+            this.cboxAutor.TabIndex = 15;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(20, 122);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(43, 20);
+            this.lblTipo.TabIndex = 14;
+            this.lblTipo.Text = "Tipo:";
             // 
             // cboxPost
             // 
@@ -195,32 +224,6 @@
             this.lblComentario.Size = new System.Drawing.Size(52, 20);
             this.lblComentario.TabIndex = 11;
             this.lblComentario.Text = "Autor:";
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(20, 122);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(43, 20);
-            this.lblTipo.TabIndex = 14;
-            this.lblTipo.Text = "Tipo:";
-            // 
-            // cboxAutor
-            // 
-            this.cboxAutor.FormattingEnabled = true;
-            this.cboxAutor.Location = new System.Drawing.Point(127, 92);
-            this.cboxAutor.Name = "cboxAutor";
-            this.cboxAutor.Size = new System.Drawing.Size(301, 21);
-            this.cboxAutor.TabIndex = 15;
-            // 
-            // cboxTipo
-            // 
-            this.cboxTipo.FormattingEnabled = true;
-            this.cboxTipo.Location = new System.Drawing.Point(127, 120);
-            this.cboxTipo.Name = "cboxTipo";
-            this.cboxTipo.Size = new System.Drawing.Size(301, 21);
-            this.cboxTipo.TabIndex = 16;
             // 
             // Reaccion
             // 

@@ -41,83 +41,7 @@ namespace RedSocial
             dataAdapter.Fill(dt);
             dataGridView1.DataSource = dt;
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
-            if (cboxPersona.Text != "" && cboxPost.Text != "" && cboxAutor.Text != "" && cboxTipo.Text != "")
-            {
-                id_post = cboxPost.SelectedValue.ToString();
-                id_persona = cboxPersona.SelectedValue.ToString();
-                id_persona_que_reacciona = cboxAutor.Text;
-                tipo = cboxTipo.Text;
-
-                DateTime s = DateTime.Today;
-                fecha_reaccion = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-
-                cadena = "INSERT INTO Reaccion (id_persona, id_persona_que_reacciona, tipo, fecha_reaccion) " +
-                    "VALUES ('" + id_persona + "','" + id_persona_que_reacciona + "','" + tipo + "','" + fecha_reaccion + "')";
-
-
-                SqlCommand comando = new SqlCommand(cadena, conexion);
-                comando.ExecuteNonQuery();
-
-                cboxPersona.Text = "";
-                cboxPost.Text = "";
-                cboxAutor.Text = "";
-                cboxAutor.Text = "";
-
-                muestraDB();
-                conexion.Close();
-            }
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
-            cadena =
-                "UPDATE Reaccion SET " +
-                " tipo='" + cboxTipo.Text + "' WHERE id_reaccion = '" +
-                id_reaccion + "';";
-
-            SqlCommand comando = new SqlCommand(cadena, conexion);
-            int cant;
-            cant = comando.ExecuteNonQuery();
-
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
-            muestraDB();
-            comando.Connection.Close();
-            conexion.Close();
-
-            cboxPersona.Text = "";
-            cboxPost.Text = "";
-            cboxAutor.Text = "";
-            cboxAutor.Text = "";
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
-            cadena =
-                "DELETE FROM Reaccion WHERE id_reaccion = " + id_reaccion;
-
-            SqlCommand comando = new SqlCommand(cadena, conexion);
-            int cant;
-            cant = comando.ExecuteNonQuery();
-
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
-            muestraDB();
-            comando.Connection.Close();
-            conexion.Close();
-
-            cboxPersona.Text = "";
-            cboxPost.Text = "";
-            cboxAutor.Text = "";
-            cboxAutor.Text = "";
-        }
-
+     
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -127,10 +51,10 @@ namespace RedSocial
 
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
 
-                cboxPost.Text = row.Cells[1].Value.ToString();
-                cboxPersona.Text = row.Cells[2].Value.ToString();
-                cboxAutor.Text = row.Cells[3].Value.ToString();
-                cboxTipo.Text = row.Cells[4].Value.ToString();
+                //cboxPost.Text = row.Cells[1].Value.ToString();
+                cboxPersona.Text = row.Cells[1].Value.ToString();
+                cboxAutor.Text = row.Cells[2].Value.ToString();
+                cboxTipo.Text = row.Cells[3].Value.ToString();
                 id_reaccion = row.Cells[0].Value.ToString();
             }
         }
@@ -196,6 +120,85 @@ namespace RedSocial
                 cboxPost.DisplayMember = "name";
                 cboxPost.ValueMember = "id_post";
             }
+            cboxTipo.Items.Add("1");
+            cboxTipo.Items.Add("2");
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            if (cboxPersona.Text != "" && cboxPost.Text != "" && cboxAutor.Text != "" && cboxTipo.Text != "")
+            {
+                id_post = cboxPost.SelectedValue.ToString();
+                id_persona = cboxPersona.SelectedValue.ToString();
+                id_persona_que_reacciona = cboxAutor.SelectedValue.ToString();
+                tipo = cboxTipo.Text;
+
+                DateTime s = DateTime.Today;
+                fecha_reaccion = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
+
+                cadena = "INSERT INTO Reaccion (id_persona, id_persona_que_reacciona, tipo, fecha_reaccion) " +
+                    "VALUES ('" + id_persona + "','" + id_persona_que_reacciona + "','" + tipo + "','" + fecha_reaccion + "')";
+
+                MessageBox.Show(cadena);
+
+                SqlCommand comando = new SqlCommand(cadena, conexion);
+                comando.ExecuteNonQuery();
+
+                cboxPersona.Text = "";
+                cboxPost.Text = "";
+                cboxAutor.Text = "";
+                cboxTipo.Text = "";
+
+                muestraDB();
+                conexion.Close();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            cadena =
+                "UPDATE Reaccion SET " +
+                " tipo='" + cboxTipo.Text + "' WHERE id_reaccion = '" +
+                id_reaccion + "';";
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+
+            cboxPersona.Text = "";
+            cboxPost.Text = "";
+            cboxAutor.Text = "";
+            cboxTipo.Text = "";
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+            cadena =
+                "DELETE FROM Reaccion WHERE id_reaccion = " + id_reaccion;
+
+            SqlCommand comando = new SqlCommand(cadena, conexion);
+            int cant;
+            cant = comando.ExecuteNonQuery();
+
+            btnModificar.Enabled = false;
+            btnEliminar.Enabled = false;
+            muestraDB();
+            comando.Connection.Close();
+            conexion.Close();
+
+            cboxPersona.Text = "";
+            cboxPost.Text = "";
+            cboxAutor.Text = "";
+            cboxTipo.Text = "";
         }
     }
 }
