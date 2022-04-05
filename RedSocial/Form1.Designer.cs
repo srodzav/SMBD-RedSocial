@@ -44,7 +44,7 @@
             // btnPersona
             // 
             this.btnPersona.Location = new System.Drawing.Point(9, 10);
-            this.btnPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPersona.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersona.Name = "btnPersona";
             this.btnPersona.Size = new System.Drawing.Size(97, 47);
             this.btnPersona.TabIndex = 0;
@@ -55,7 +55,7 @@
             // btnAmigo
             // 
             this.btnAmigo.Location = new System.Drawing.Point(110, 10);
-            this.btnAmigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAmigo.Margin = new System.Windows.Forms.Padding(2);
             this.btnAmigo.Name = "btnAmigo";
             this.btnAmigo.Size = new System.Drawing.Size(97, 47);
             this.btnAmigo.TabIndex = 1;
@@ -116,7 +116,7 @@
             // btnComentario
             // 
             this.btnComentario.Location = new System.Drawing.Point(315, 62);
-            this.btnComentario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnComentario.Margin = new System.Windows.Forms.Padding(2);
             this.btnComentario.Name = "btnComentario";
             this.btnComentario.Size = new System.Drawing.Size(97, 47);
             this.btnComentario.TabIndex = 5;
@@ -127,7 +127,7 @@
             // btnContenido
             // 
             this.btnContenido.Location = new System.Drawing.Point(9, 114);
-            this.btnContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnContenido.Margin = new System.Windows.Forms.Padding(2);
             this.btnContenido.Name = "btnContenido";
             this.btnContenido.Size = new System.Drawing.Size(97, 46);
             this.btnContenido.TabIndex = 6;
@@ -138,7 +138,7 @@
             // compartir
             // 
             this.compartir.Location = new System.Drawing.Point(112, 114);
-            this.compartir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.compartir.Margin = new System.Windows.Forms.Padding(2);
             this.compartir.Name = "compartir";
             this.compartir.Size = new System.Drawing.Size(95, 46);
             this.compartir.TabIndex = 7;
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(420, 168);
             this.Controls.Add(this.btnReaccion);
             this.Controls.Add(this.compartir);
             this.Controls.Add(this.btnContenido);

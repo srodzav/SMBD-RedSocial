@@ -120,8 +120,11 @@ namespace RedSocial
                 cboxPost.DisplayMember = "name";
                 cboxPost.ValueMember = "id_post";
             }
-            cboxTipo.Items.Add("1");
-            cboxTipo.Items.Add("2");
+            cboxTipo.Items.Add("1 - Me gusta");
+            cboxTipo.Items.Add("2 - Me encanta");
+            cboxTipo.Items.Add("3 - Me divierte");
+            cboxTipo.Items.Add("4 - Me entristece");
+            cboxTipo.Items.Add("5 - Me enoja");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
