@@ -32,7 +32,7 @@ namespace RedSocial
 
         private void muestraDB()
         {
-            cadena = "SELECT id_compartir, CONCAT(pe.id_persona, ' - ' ,pe.nombre_red_social) AS Persona, CONCAT(p.id_post, ' - ', p.descripcion) AS Post FROM Compartir as c inner join Post as p on c.id_post = p.id_post inner join Persona as pe on pe.id_persona = c.id_persona";
+            cadena = "SELECT id_compartir, CONCAT(pe.id_persona, ' - ' ,pe.nombre_red_social) AS Persona, CONCAT(p.id_post, ' - ', p.descripcion) AS Post, fecha_compartido FROM Compartir as c inner join Post as p on c.id_post = p.id_post inner join Persona as pe on pe.id_persona = c.id_persona";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
@@ -50,8 +50,8 @@ namespace RedSocial
                 DateTime s = DateTime.Today;
                 fecha_compartido = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
-                cadena = "INSERT INTO Compartir (id_post, id_persona, fecha_compartido) " +
-                    "VALUES ('" + id_postt + "','" + id_personaa + "','" + fecha_compartido + "')";
+                cadena = "INSERT INTO Compartir (id_post, id_persona) " +
+                    "VALUES ('" + id_postt + "','" + id_personaa + "')";
 
 
                 SqlCommand comando = new SqlCommand(cadena, conexion);
@@ -118,7 +118,7 @@ namespace RedSocial
         {
             conexion.Open();
             cadena =
-                "DELETE FROM Compartir WHERE id_comentario = " + id_compartido;
+                "DELETE FROM Compartir WHERE id_compartir = " + id_compartido;
 
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;

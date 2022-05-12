@@ -24,8 +24,8 @@ namespace RedSocial
 
         public Post()
         {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             conexion.Open();
             InitializeComponent();
             btnEliminar.Enabled = false;
@@ -56,7 +56,7 @@ namespace RedSocial
             DateTime s = DateTime.Today;
             fecharegistro = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
-            cadena = $"INSERT INTO Post (id_persona, tipo, descripcion, num_reacciones, fecha_post) VALUES ({id_persona},'{tipo}','{descripcion}','{reacciones}','{fecharegistro}')";
+            cadena = $"INSERT INTO Post (id_persona, tipo, descripcion, num_reacciones) VALUES ({id_persona},'{tipo}','{descripcion}','{reacciones}')";
             
             SqlCommand comando = new SqlCommand(cadena, conexion);
             comando.ExecuteNonQuery();
