@@ -23,6 +23,8 @@ namespace RedSocial
         string id_post;
         string fecha_reaccion;
 
+        string ipqr;
+
         public Reaccion()
         {
             //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
@@ -53,7 +55,7 @@ namespace RedSocial
 
                 //cboxPost.Text = row.Cells[1].Value.ToString();
                 cboxPersona.Text = row.Cells[1].Value.ToString();
-                cboxAutor.Text = row.Cells[2].Value.ToString();
+                //cboxAutor.Text = row.Cells[2].Value.ToString();
                 cboxTipo.Text = row.Cells[3].Value.ToString();
                 id_reaccion = row.Cells[0].Value.ToString();
             }
@@ -92,14 +94,14 @@ namespace RedSocial
                 row[0] = 0;
                 dt.Rows.InsertAt(row, 0);
 
-                cboxAutor.DataSource = dt;
+                //cboxAutor.DataSource = dt;
                 dt.Columns.Add(
                 "name",
                 typeof(string),
                 "id_persona + ' - ' + nombre");
 
-                cboxAutor.DisplayMember = "name";
-                cboxAutor.ValueMember = "id_persona";
+                //cboxAutor.DisplayMember = "name";
+                //cboxAutor.ValueMember = "id_persona";
             }
             using (SqlDataAdapter sda = new SqlDataAdapter("SELECT po.id_post as id_post, pe.nombre as nombre, po.tipo as tipo, po.fecha_post as fecha FROM Post po INNER JOIN Persona pe ON Po.id_persona = Pe.id_persona", conexion))
             {
@@ -130,18 +132,27 @@ namespace RedSocial
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            if (cboxPersona.Text != "" && cboxPost.Text != "" && cboxAutor.Text != "" && cboxTipo.Text != "")
+            if (cboxPersona.Text != "" && cboxPost.Text != "" && cboxTipo.Text != "")
             {
+                String nombre = cboxPost.Text;
+                string[] nombres;
+
+                nombres = nombre.Split('-');
+
+                ipqr = nombres[0];
+
+                
+
                 id_post = cboxPost.SelectedValue.ToString();
                 id_persona = cboxPersona.SelectedValue.ToString();
-                id_persona_que_reacciona = cboxAutor.SelectedValue.ToString();
+                id_persona_que_reacciona = ipqr;
                 tipo = cboxTipo.Text;
 
                 DateTime s = DateTime.Today;
                 fecha_reaccion = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-
+                
                 cadena = "INSERT INTO Reaccion (id_persona, id_persona_que_reacciona, tipo, fecha_reaccion) " +
-                    "VALUES ('" + id_persona + "','" + id_persona_que_reacciona + "','" + tipo + "','" + fecha_reaccion + "')";
+                    "VALUES ('" + id_persona + "',(SELECT id_persona from Persona WHERE nombre = '" + ipqr + "' ),'" + tipo + "','" + fecha_reaccion + "')";
 
                 MessageBox.Show(cadena);
 
@@ -150,7 +161,7 @@ namespace RedSocial
 
                 cboxPersona.Text = "";
                 cboxPost.Text = "";
-                cboxAutor.Text = "";
+                //cboxAutor.Text = "";
                 cboxTipo.Text = "";
 
                 muestraDB();
@@ -178,7 +189,7 @@ namespace RedSocial
 
             cboxPersona.Text = "";
             cboxPost.Text = "";
-            cboxAutor.Text = "";
+            //cboxAutor.Text = "";
             cboxTipo.Text = "";
         }
 
@@ -200,8 +211,23 @@ namespace RedSocial
 
             cboxPersona.Text = "";
             cboxPost.Text = "";
-            cboxAutor.Text = "";
+            //cboxAutor.Text = "";
             cboxTipo.Text = "";
+        }
+
+        private void cboxPost_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboxPost_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboxPost_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

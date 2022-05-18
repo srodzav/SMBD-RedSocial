@@ -17,26 +17,28 @@ namespace RedSocial
         string cadena;
         string id_persona, id_persona_T;
         string id_grupo, id_grupo_T;
+
         public PersonaGrupo()
-        {
-            //conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
-            conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
-            conexion.Open();
+        { // Conexiones necesarias para la base de datos
+            // PC-1
+            conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            // PC-2
+            //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
+            // Desactivar botones de modificar y eliminar.
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
+            // Mostrar la base de datos
             muestraDB();
         }
 
+
         public void muestraDB()
         {
-            //cadena = "SELECT A.id_grupo, CONCAT(P.id_persona, '-' ,P.nombre_red_social) as amigo,A.nombre, A.imagen, A.descripcion, A.fecha_creacion " +
-            //    "FROM Grupo A " +
-            //    "INNER JOIN Persona AS P " +
-            //    "ON A.id_creador = P.id_persona;";
+            // Creacion del query
             cadena = "SELECT CONCAT(P.id_persona, '-' ,P.nombre_red_social) as Persona,CONCAT(G.id_grupo, '-' ,G.nombre) as Grupo " +
                 "FROM PersonaGrupo A INNER JOIN Persona AS P ON A.id_persona = P.id_persona INNER JOIN Grupo AS G ON A.id_grupo = G.id_grupo;";
-
+            // Se llenan los datos
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);
@@ -118,13 +120,13 @@ namespace RedSocial
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            // Se crea el query para eliminar de la base de datos
             cadena = "DELETE FROM PersonaGrupo WHERE id_persona = " + id_persona_T + " AND id_grupo = " + id_grupo_T;
-
+            // Se ejecuta el comando
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
-
-
+            // Se limpian los formularios, se desactivan los botones y se actualiza la base de datos
             cboxNombreGrupoPG.SelectedIndex = 0;
             cboxCreadorGrupoPG.SelectedIndex = 0;
             btnModificar.Enabled = false;
@@ -134,29 +136,29 @@ namespace RedSocial
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            // Se guardan los valores de los formularios
             id_persona = cboxCreadorGrupoPG.SelectedValue.ToString();
             id_grupo = cboxNombreGrupoPG.SelectedValue.ToString();
-
+            // Se crea el query
             cadena =
                 "UPDATE PersonaGrupo SET id_persona=" + id_persona + ", id_grupo=" + id_grupo + 
                 " WHERE id_persona = " + id_persona_T + " AND id_grupo = " + id_grupo_T;
-
+            // Se ejecuta el comando
             try
             {
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 int cant;
                 cant = comando.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception) // Caso contrario muestra un error debido a que la fila esta duplicada
             {
                 MessageBox.Show("No es posible modificar fila duplicada");
             }
-            
+            // Se desactivan los botones, se limpian los formularios y se actualiza la base de datos
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             cboxNombreGrupoPG.Text = "";
             cboxCreadorGrupoPG.Text = "";
-
             muestraDB();
         }
 

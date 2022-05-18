@@ -23,18 +23,24 @@ namespace RedSocial
         string fechacreacion;
         string cadena;
         string id_persona;
+
         public Grupo()
-        {
+        {// Conexiones necesarias para la base de datos
+            // PC-1
             conexion = new SqlConnection("server= DESKTOP-OBF530T\\SQLEXPRESS ; database=RedSocial ; integrated security = true");
+            // PC-2
             //conexion = new SqlConnection("server=MINIGODDARD;database=RedSocial;integrated security = true");
             InitializeComponent();
+            // Desactivar botones de modificar y eliminar.
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
+            // Mostrar la base de datos
             muestraDB();
         }
 
         public void muestraDB()
         {
+            // Query para seleccionar el nombre del grupo, y realiza un inner join para el creador del grupo
             cadena = "SELECT A.id_grupo, CONCAT(P.id_persona, '-' ,P.nombre_red_social) as amigo,A.nombre, A.imagen, A.descripcion, A.fecha_creacion " +
                 "FROM Grupo A " +
                 "INNER JOIN Persona AS P " +
@@ -48,28 +54,30 @@ namespace RedSocial
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            // Se abre la conexión
             conexion.Open();
             if (txtNombreGrupo.Text != "" && cboxCreadorGrupo.Text != "" && txtDescripcionGrupo.Text != "")
             {
+                // Se guardan las variables de los formularios
                 nombre = txtNombreGrupo.Text;
                 id_creador = cboxCreadorGrupo.SelectedValue.ToString();
                 descripcion = txtDescripcionGrupo.Text;
-
+                // Guardamos la fecha de creacion del grupo
                 DateTime s = DateTime.Today;
-                fechacreacion = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
-
+                fechacreacion = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);     
                 if (imagen == "") { imagen = ""; }
+                // Creacion del query para instertar en la base de datos
                 cadena = "INSERT INTO Grupo (id_creador, nombre, descripcion, imagen, fecha_creacion) " +
                     "VALUES ('" + id_creador + "','" + nombre + "','" + descripcion + "','" + imagen + "','" + fechacreacion + "')";
                 SqlCommand comando = new SqlCommand(cadena, conexion);
                 comando.ExecuteNonQuery();
-
+                // Limpieza de formularios
                 txtNombreGrupo.Text = "";
                 cboxCreadorGrupo.Text = "";
                 txtDescripcionGrupo.Text = "";
                 lblGrupoImagen.ForeColor = System.Drawing.Color.Red;
                 lblGrupoImagen.Text = "Imagen sin cargar";
-
+                // Actualiza la base de datos y cierra la conexion
                 muestraDB();
                 conexion.Close();
             }
@@ -119,19 +127,21 @@ namespace RedSocial
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            // Se crea la conexion y se guardan las variables de los formularios
             conexion.Open();
             id_creador = cboxCreadorGrupo.SelectedValue.ToString();
             nombre = txtNombreGrupo.Text;
             imagen = lblGrupoImagen.Text;
             descripcion = txtDescripcionGrupo.Text;
-
+            // Se crea el query de inserción
             cadena =
                 "UPDATE Grupo SET id_creador="+id_creador+", nombre='"+nombre+"', descripcion='"+descripcion+"', imagen='"+imagen+"' " +
                 "WHERE id_grupo = "+id_grupo;
-
+            // Se ejecuta
             SqlCommand comando = new SqlCommand(cadena, conexion);
             int cant;
             cant = comando.ExecuteNonQuery();
+            // Se limpian los formularios y se desactivan los botones
             btnModificar.Enabled = false;
             btnEliminar.Enabled = false;
             txtNombreGrupo.Text = "";
@@ -139,7 +149,7 @@ namespace RedSocial
             txtDescripcionGrupo.Text = "";
             lblGrupoImagen.ForeColor = System.Drawing.Color.Red;
             lblGrupoImagen.Text = "Imagen sin cargar";
-
+            // Se actualiza la base de datos y se cierra la conexion
             muestraDB();
             comando.Connection.Close();
             conexion.Close();

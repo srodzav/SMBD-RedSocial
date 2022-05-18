@@ -38,13 +38,11 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboxTipo = new System.Windows.Forms.ComboBox();
-            this.cboxAutor = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cboxPost = new System.Windows.Forms.ComboBox();
             this.cboxPersona = new System.Windows.Forms.ComboBox();
             this.lblPersonaComentario = new System.Windows.Forms.Label();
             this.lblPostComentario = new System.Windows.Forms.Label();
-            this.lblComentario = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -139,13 +137,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cboxTipo);
-            this.groupBox1.Controls.Add(this.cboxAutor);
             this.groupBox1.Controls.Add(this.lblTipo);
             this.groupBox1.Controls.Add(this.cboxPost);
             this.groupBox1.Controls.Add(this.cboxPersona);
             this.groupBox1.Controls.Add(this.lblPersonaComentario);
             this.groupBox1.Controls.Add(this.lblPostComentario);
-            this.groupBox1.Controls.Add(this.lblComentario);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(434, 181);
@@ -160,14 +156,6 @@
             this.cboxTipo.Name = "cboxTipo";
             this.cboxTipo.Size = new System.Drawing.Size(301, 21);
             this.cboxTipo.TabIndex = 16;
-            // 
-            // cboxAutor
-            // 
-            this.cboxAutor.FormattingEnabled = true;
-            this.cboxAutor.Location = new System.Drawing.Point(127, 92);
-            this.cboxAutor.Name = "cboxAutor";
-            this.cboxAutor.Size = new System.Drawing.Size(301, 21);
-            this.cboxAutor.TabIndex = 15;
             // 
             // lblTipo
             // 
@@ -186,6 +174,9 @@
             this.cboxPost.Name = "cboxPost";
             this.cboxPost.Size = new System.Drawing.Size(301, 21);
             this.cboxPost.TabIndex = 13;
+            this.cboxPost.SelectedIndexChanged += new System.EventHandler(this.cboxPost_SelectedIndexChanged);
+            this.cboxPost.SelectedValueChanged += new System.EventHandler(this.cboxPost_SelectedValueChanged);
+            this.cboxPost.Click += new System.EventHandler(this.cboxPost_Click);
             // 
             // cboxPersona
             // 
@@ -214,16 +205,6 @@
             this.lblPostComentario.Size = new System.Drawing.Size(45, 20);
             this.lblPostComentario.TabIndex = 10;
             this.lblPostComentario.Text = "Post:";
-            // 
-            // lblComentario
-            // 
-            this.lblComentario.AutoSize = true;
-            this.lblComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComentario.Location = new System.Drawing.Point(20, 93);
-            this.lblComentario.Name = "lblComentario";
-            this.lblComentario.Size = new System.Drawing.Size(52, 20);
-            this.lblComentario.TabIndex = 11;
-            this.lblComentario.Text = "Autor:";
             // 
             // Reaccion
             // 
@@ -263,9 +244,7 @@
         private System.Windows.Forms.ComboBox cboxPersona;
         private System.Windows.Forms.Label lblPersonaComentario;
         private System.Windows.Forms.Label lblPostComentario;
-        private System.Windows.Forms.Label lblComentario;
         private System.Windows.Forms.ComboBox cboxTipo;
-        private System.Windows.Forms.ComboBox cboxAutor;
         private System.Windows.Forms.Label lblTipo;
     }
 }
