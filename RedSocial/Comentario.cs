@@ -43,8 +43,8 @@ namespace RedSocial
                 DateTime s = DateTime.Today;
                 fecha_comentario = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
-                cadena = "INSERT INTO Comentario (id_post, id_persona, comentario, fecha_comentario) " +
-                    "VALUES ('" + id_postt + "','" + id_personaa + "','" + comentario + "','" + fecha_comentario + "')";
+                cadena = "INSERT INTO Comentario (id_post, id_persona, comentario) " +
+                    "VALUES ('" + id_postt + "','" + id_personaa + "','" + comentario + "')";
 
                 
                 SqlCommand comando = new SqlCommand(cadena, conexion);
@@ -164,7 +164,7 @@ namespace RedSocial
 
         public void muestraDB()
         {
-            cadena = "SELECT id_comentario, CONCAT(pe.id_persona, ' - ' ,pe.nombre_red_social) AS Persona, CONCAT(p.id_post, ' - ', p.descripcion) AS Post, c.comentario AS Comentario FROM Comentario as c inner join Post as p on c.id_post = p.id_post inner join Persona as pe on pe.id_persona = c.id_persona";
+            cadena = "SELECT id_comentario, CONCAT(pe.id_persona, ' - ' ,pe.nombre_red_social) AS Persona, CONCAT(p.id_post, ' - ', p.descripcion) AS Post, c.comentario AS Comentario, fecha_comentario FROM Comentario as c inner join Post as p on c.id_post = p.id_post inner join Persona as pe on pe.id_persona = c.id_persona";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cadena, conexion);
             DataTable dt = new DataTable();
             dataAdapter.Fill(dt);

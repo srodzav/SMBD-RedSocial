@@ -62,8 +62,8 @@ namespace RedSocial
                 DateTime s = DateTime.Today;
                 fecharegistro = s.ToString("yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
 
-                cadena = "INSERT INTO Notificacion (id_persona, id_quien_compartio, mensaje, visto,fecha_notficacion) " +
-                    "VALUES (" + id_persona + "," + id_quien_compartio + ",'" + mensaje_txt + "'," + (visto ? "1" : "0") + ",'" + fecharegistro + "')";
+                cadena = "INSERT INTO Notificacion (id_persona, id_quien_compartio, mensaje, visto) " +
+                    "VALUES (" + id_persona + "," + id_quien_compartio + ",'" + mensaje_txt + "'," + (visto ? "1" : "0") + ")";
                 
                 //MessageBox.Show(cadena);
                 SqlCommand comando = new SqlCommand(cadena, conexion);
